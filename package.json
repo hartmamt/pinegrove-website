@@ -1,12 +1,13 @@
 {
-  "name": "gatsby-contentful-starter",
-  "description": "Starter Contentful Gatsby Blog",
+  "name": "pinegrove-website",
+  "description": "band website",
   "version": "1.0.0",
-  "author": "Stefan Judis <stefanjudis@gmail.com>",
+  "author": "Matt Hartman <mattandalissa@gmail.com>",
   "bugs": {
     "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.2.0",
     "gatsby-image": "^2.0.38",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-sharp": "^2.0.34",

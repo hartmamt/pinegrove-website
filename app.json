@@ -1,6 +1,6 @@
 {
-  "name": "Contentful Gatsby Starter",
-  "description": "Gatsby starter for a Contentful project.",
+  "name": "Amperland",
+  "description": ".pinegrove.",
   "keywords": [
     "contentful",
     "gatsby",
@@ -9,8 +9,7 @@
   ],
   "repository": "https://github.com/contentful-userland/gatsby-contentful-starter",
   "success_url": "/",
-  "buildpacks": [
-    {
+  "buildpacks": [{
       "url": "heroku/nodejs"
     },
     {
