@@ -7,7 +7,8 @@ import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import Layout from '../components/layout'
-
+import DiscussionBox from '../components/DiscussionBox'
+import SoundPlayer from '../components/SoundPlayer'
 import heroStyles from '../components/hero.module.css'
 
 class AlbumTemplate extends React.Component {
@@ -15,6 +16,8 @@ class AlbumTemplate extends React.Component {
     const album = get(this.props, 'data.contentfulAlbum')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
+    const tracks = get(this, 'props.data.contentfulAlbum.tracks')
+    console.log('tracks', tracks)
     return (
       <Layout location={this.props.location}>
         <div
@@ -44,8 +47,27 @@ class AlbumTemplate extends React.Component {
                 __html: album.tracklisting.childMarkdownRemark.html,
               }}
             />{' '} */}
-            <div>{documentToReactComponents(album.tracklisting.json)}</div>
+            {tracks &&
+              tracks.map(track => (
+                <div>
+                  <div>{track.songTitle}</div>
+                  <div>
+                    <SoundPlayer
+                      streamUrl={track.audioFile.file.url}
+                      trackTitle={track.songTitle}
+                      preloadType="metadata"
+                    />
+                  </div>
+                </div>
+              ))}
+            {/* <div>{documentToReactComponents(album.tracklisting.json)}</div> */}
           </div>{' '}
+          <DiscussionBox
+            discourseUrl={'https://amperland.gokinjo.space/'}
+            discourseEmbedUrl={
+              'https://amperland.gokinjo.space/t/skylight-album-discussion/25'
+            }
+          />
         </div>{' '}
       </Layout>
     )
@@ -72,6 +94,14 @@ export const pageQuery = graphql`
       }
       tracklisting {
         json
+      }
+      tracks {
+        songTitle
+        audioFile {
+          file {
+            url
+          }
+        }
       }
     }
   }
