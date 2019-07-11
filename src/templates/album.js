@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import SpotifyPlayer from 'react-spotify-player'
 import get from 'lodash/get'
@@ -11,6 +11,8 @@ import Layout from '../components/layout'
 import DiscussionBox from '../components/DiscussionBox'
 import SoundPlayer from '../components/SoundPlayer'
 import heroStyles from '../components/hero.module.css'
+
+import styles from './album.module.css'
 
 class AlbumTemplate extends React.Component {
   render() {
@@ -34,55 +36,48 @@ class AlbumTemplate extends React.Component {
             background: '#fff',
           }}
         >
-          <Helmet title={`${album.title} | ${siteTitle}`} />{' '}
+          <Helmet title={`${album.title} | ${siteTitle}`} />
           <div className={heroStyles.hero}>
             <Img
               className={heroStyles.heroImage}
               alt={album.title}
               fluid={album.albumCover.fluid}
-            />{' '}
-          </div>{' '}
+            />
+          </div>
           <div className="wrapper">
-            <h1 className="section-headline"> {album.title} </h1>{' '}
+            <h1 className="section-headline"> {album.title} </h1>
             <p
               style={{
                 display: 'block',
               }}
             >
-              {album.releasedate}{' '}
-            </p>{' '}
-            {/* <div
-              dangerouslySetInnerHTML={{
-                __html: album.tracklisting.childMarkdownRemark.html,
-              }}
-            />{' '} */}
+              {album.releasedate}
+            </p>
             {tracks &&
               tracks.map(track => (
                 <div>
-                  <div>{track.songTitle}</div>
-                  <div>
-                    <SoundPlayer
-                      streamUrl={track.audioFile.file.url}
-                      trackTitle={track.songTitle}
-                      preloadType="metadata"
-                    />
-                  </div>
+                  <Link to={`/song/${track.slug}`}> {track.songTitle} </Link>{' '}
                 </div>
               ))}
-            <SpotifyPlayer
+            {/* <SpotifyPlayer
               uri="spotify:album:3CIisDFciv06JbPrZNzNqW"
               size={size}
               view={view}
               theme={theme}
-            />
+            /> */}
             {/* <div>{documentToReactComponents(album.tracklisting.json)}</div> */}
-          </div>{' '}
-          <DiscussionBox
+            <div
+              dangerouslySetInnerHTML={{
+                __html: album.playerEmbed.childMarkdownRemark.html,
+              }}
+            />
+          </div>
+          {/* <DiscussionBox
             discourseUrl={'https://amperland.gokinjo.space/'}
             discourseEmbedUrl={
               'https://amperland.gokinjo.space/t/skylight-album-discussion/25'
             }
-          />
+          /> */}
         </div>{' '}
       </Layout>
     )
@@ -101,7 +96,11 @@ export const pageQuery = graphql`
     contentfulAlbum(slug: { eq: $slug }) {
       title
       releasedate(formatString: "MMMM Do, YYYY")
-
+      playerEmbed {
+        childMarkdownRemark {
+          html
+        }
+      }
       albumCover {
         fluid(maxWidth: 500, maxHeight: 500, resizingBehavior: SCALE) {
           ...GatsbyContentfulFluid
@@ -109,6 +108,7 @@ export const pageQuery = graphql`
       }
       tracks {
         songTitle
+        slug
         audioFile {
           file {
             url
