@@ -107,9 +107,6 @@ export const pageQuery = graphql`
           ...GatsbyContentfulFluid
         }
       }
-      tracklisting {
-        json
-      }
       tracks {
         songTitle
         audioFile {
