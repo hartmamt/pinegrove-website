@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import SpotifyPlayer from 'react-spotify-player'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
@@ -16,8 +17,16 @@ class AlbumTemplate extends React.Component {
     const album = get(this.props, 'data.contentfulAlbum')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
+    // size may also be a plain string using the presets 'large' or 'compact'
+    const size = {
+      width: '100%',
+      height: 300,
+    }
+    const view = 'list' // or 'coverart'
+    const theme = 'black' // or 'white'
+
     const tracks = get(this, 'props.data.contentfulAlbum.tracks')
-    console.log('tracks', tracks)
+
     return (
       <Layout location={this.props.location}>
         <div
@@ -60,6 +69,12 @@ class AlbumTemplate extends React.Component {
                   </div>
                 </div>
               ))}
+            <SpotifyPlayer
+              uri="spotify:album:3CIisDFciv06JbPrZNzNqW"
+              size={size}
+              view={view}
+              theme={theme}
+            />
             {/* <div>{documentToReactComponents(album.tracklisting.json)}</div> */}
           </div>{' '}
           <DiscussionBox
