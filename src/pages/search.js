@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import algoliasearch from 'algoliasearch/lite'
 import {
   InstantSearch,
@@ -27,11 +28,12 @@ const searchClient = {
 }
 
 const Hit = function(props) {
-  console.log(props)
   return (
     <div>
       {/* <img src={props.hit.image} align="left" alt={props.hit.name} /> */}
-      <div>{props.hit.songTitle}</div>
+      <div>
+        <Link to={`/song/${props.hit.slug}`}> {props.hit.songTitle} </Link>
+      </div>
       <div className="hit-description">
         <pre>{props.hit.lyrics.content[0].content[0].value}</pre>
       </div>
