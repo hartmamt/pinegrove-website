@@ -1,9 +1,19 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import SpotifyPlayer from 'react-spotify-player'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from 'react-accessible-accordion'
+
+// Demo styles, see 'Styles' section below for some notes on use.
+//import 'react-accessible-accordion/dist/fancy-example.css'
+
 import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
@@ -12,7 +22,7 @@ import DiscussionBox from '../components/DiscussionBox'
 import SoundPlayer from '../components/SoundPlayer'
 import heroStyles from '../components/hero.module.css'
 
-import styles from './album.module.css'
+import './album.css'
 
 class AlbumTemplate extends React.Component {
   render() {
@@ -37,15 +47,24 @@ class AlbumTemplate extends React.Component {
           }}
         >
           <Helmet title={`${album.title} | ${siteTitle}`} />
-          <div className={heroStyles.hero}>
+
+          {/* </div> */}
+
+          <div className="wrapper">
+            {/* <div className={heroStyles.hero}> */}
+            <h1 className="section-headline"> {album.title} </h1>
+            {/* </div> */}
             <Img
               className={heroStyles.heroImage}
               alt={album.title}
               fluid={album.albumCover.fluid}
             />
-          </div>
-          <div className="wrapper">
-            <h1 className="section-headline"> {album.title} </h1>
+            <div
+              style={{ width: '100%' }}
+              dangerouslySetInnerHTML={{
+                __html: album.playerEmbed.childMarkdownRemark.html,
+              }}
+            />
             <p
               style={{
                 display: 'block',
@@ -53,12 +72,35 @@ class AlbumTemplate extends React.Component {
             >
               {album.releasedate}
             </p>
-            {tracks &&
-              tracks.map(track => (
-                <div>
-                  <Link to={`/song/${track.slug}`}> {track.songTitle} </Link>{' '}
-                </div>
-              ))}
+            <Accordion allowZeroExpanded>
+              {tracks &&
+                tracks.map(track => (
+                  <AccordionItem>
+                    <AccordionItemHeading>
+                      <AccordionItemButton>
+                        <Link to={`/song/${track.slug}`}>
+                          {track.songTitle}{' '}
+                        </Link>
+                      </AccordionItemButton>
+                    </AccordionItemHeading>
+                    <AccordionItemPanel>
+                      <div>
+                        <div
+                          style={{ width: '100%' }}
+                          dangerouslySetInnerHTML={{
+                            __html: track.audioEmbed.childMarkdownRemark.html,
+                          }}
+                        />
+                        <div>Lyrics</div>
+                        <pre>
+                          {documentToReactComponents(track.lyrics.json)}{' '}
+                        </pre>
+                      </div>
+                    </AccordionItemPanel>
+                  </AccordionItem>
+                ))}
+            </Accordion>
+
             {/* <SpotifyPlayer
               uri="spotify:album:3CIisDFciv06JbPrZNzNqW"
               size={size}
@@ -66,11 +108,6 @@ class AlbumTemplate extends React.Component {
               theme={theme}
             /> */}
             {/* <div>{documentToReactComponents(album.tracklisting.json)}</div> */}
-            <div
-              dangerouslySetInnerHTML={{
-                __html: album.playerEmbed.childMarkdownRemark.html,
-              }}
-            />
           </div>
           {/* <DiscussionBox
             discourseUrl={'https://amperland.gokinjo.space/'}
@@ -102,16 +139,25 @@ export const pageQuery = graphql`
         }
       }
       albumCover {
-        fluid(maxWidth: 500, maxHeight: 500, resizingBehavior: SCALE) {
+        fluid(maxWidth: 500, maxHeight: 500, resizingBehavior: PAD) {
           ...GatsbyContentfulFluid
         }
       }
       tracks {
         songTitle
         slug
+        lyrics {
+          json
+          lyrics
+        }
         audioFile {
           file {
             url
+          }
+        }
+        audioEmbed {
+          childMarkdownRemark {
+            html
           }
         }
       }
