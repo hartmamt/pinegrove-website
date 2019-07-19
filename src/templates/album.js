@@ -24,6 +24,18 @@ import heroStyles from '../components/hero.module.css'
 
 import './album.css'
 
+const Bold = ({ children }) => <p className="bold">{children}</p>
+
+const Text = ({ children }) => <p className="align-center">{children}</p>
+
+const options = {
+  renderText: text => {
+    return text.split('\n').reduce((children, textSegment, index) => {
+      return [...children, index > 0 && <br key={index} />, textSegment]
+    }, [])
+  },
+}
+
 class AlbumTemplate extends React.Component {
   render() {
     const album = get(this.props, 'data.contentfulAlbum')
@@ -58,6 +70,7 @@ class AlbumTemplate extends React.Component {
               className={heroStyles.heroImage}
               alt={album.title}
               fluid={album.albumCover.fluid}
+              style={{ maxWidth: '700px' }}
             />
             <div
               style={{ width: '100%' }}
@@ -65,49 +78,61 @@ class AlbumTemplate extends React.Component {
                 __html: album.playerEmbed.childMarkdownRemark.html,
               }}
             />
-            <p
+            <div
               style={{
-                display: 'block',
+                display: 'flex',
+                alignItems: 'stretch',
+                flexDirection: 'row',
               }}
             >
-              {album.releasedate}
-            </p>
-            <Accordion allowZeroExpanded>
-              {tracks &&
-                tracks.map(track => (
-                  <AccordionItem>
-                    <AccordionItemHeading>
-                      <AccordionItemButton>
-                        <Link to={`/song/${track.slug}`}>
-                          {track.songTitle}{' '}
-                        </Link>
-                      </AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                      <div>
-                        <div
-                          style={{ width: '100%' }}
-                          dangerouslySetInnerHTML={{
-                            __html: track.audioEmbed.childMarkdownRemark.html,
-                          }}
-                        />
-                        <div>Lyrics</div>
-                        <pre>
-                          {documentToReactComponents(track.lyrics.json)}{' '}
-                        </pre>
-                      </div>
-                    </AccordionItemPanel>
-                  </AccordionItem>
-                ))}
-            </Accordion>
-
-            {/* <SpotifyPlayer
-              uri="spotify:album:3CIisDFciv06JbPrZNzNqW"
-              size={size}
-              view={view}
-              theme={theme}
-            /> */}
-            {/* <div>{documentToReactComponents(album.tracklisting.json)}</div> */}
+              <div style={{ flex: 'auto' }}>
+                <Accordion allowZeroExpanded>
+                  {tracks &&
+                    tracks.map(track => (
+                      <AccordionItem>
+                        <AccordionItemHeading>
+                          <AccordionItemButton>
+                            <Link to={`/song/${track.slug}`}>
+                              {track.songTitle}{' '}
+                            </Link>
+                          </AccordionItemButton>
+                        </AccordionItemHeading>
+                        <AccordionItemPanel>
+                          <div>
+                            <div
+                              style={{ width: '100%' }}
+                              dangerouslySetInnerHTML={{
+                                __html:
+                                  track.audioEmbed.childMarkdownRemark.html,
+                              }}
+                            />
+                            <div>
+                              <div>
+                                <div>Lyrics</div>
+                                <pre>
+                                  {documentToReactComponents(track.lyrics.json)}{' '}
+                                </pre>
+                              </div>
+                            </div>
+                          </div>
+                        </AccordionItemPanel>
+                      </AccordionItem>
+                    ))}
+                </Accordion>
+              </div>
+              <div style={{ flex: '50%', paddingLeft: '50px' }}>
+                <b>Release Date</b>
+                <p
+                  style={{
+                    display: 'block',
+                  }}
+                >
+                  {album.releasedate}
+                </p>
+                <b>Credits</b>
+                {documentToReactComponents(album.credits.json, options)}
+              </div>
+            </div>
           </div>
           {/* <DiscussionBox
             discourseUrl={'https://amperland.gokinjo.space/'}
@@ -142,6 +167,9 @@ export const pageQuery = graphql`
         fluid(maxWidth: 500, maxHeight: 500, resizingBehavior: PAD) {
           ...GatsbyContentfulFluid
         }
+      }
+      credits {
+        json
       }
       tracks {
         songTitle
