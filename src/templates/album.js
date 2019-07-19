@@ -66,26 +66,29 @@ class AlbumTemplate extends React.Component {
             {/* <div className={heroStyles.hero}> */}
             <h1 className="section-headline"> {album.title} </h1>
             {/* </div> */}
-            <Img
-              className={heroStyles.heroImage}
-              alt={album.title}
-              fluid={album.albumCover.fluid}
-              style={{ maxWidth: '700px' }}
-            />
-            <div
-              style={{ width: '100%' }}
-              dangerouslySetInnerHTML={{
-                __html: album.playerEmbed.childMarkdownRemark.html,
-              }}
-            />
+            <div>
+              <div>
+                <Img
+                  className={'albumImage'}
+                  alt={album.title}
+                  fluid={album.albumCover.fluid}
+                />
+              </div>
+              <div
+                style={{ width: '100%', marginTop: '20px' }}
+                dangerouslySetInnerHTML={{
+                  __html: album.playerEmbed.childMarkdownRemark.html,
+                }}
+              />
+            </div>
             <div
               style={{
                 display: 'flex',
-                alignItems: 'stretch',
-                flexDirection: 'row',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
               }}
             >
-              <div style={{ flex: 'auto' }}>
+              <div style={{ flex: 3 }}>
                 <Accordion allowZeroExpanded>
                   {tracks &&
                     tracks.map(track => (
@@ -120,7 +123,7 @@ class AlbumTemplate extends React.Component {
                     ))}
                 </Accordion>
               </div>
-              <div style={{ flex: '50%', paddingLeft: '50px' }}>
+              <div style={{ flex: 2 }}>
                 <b>Release Date</b>
                 <p
                   style={{
