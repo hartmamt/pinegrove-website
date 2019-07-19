@@ -66,21 +66,7 @@ class AlbumTemplate extends React.Component {
             {/* <div className={heroStyles.hero}> */}
             <h1 className="section-headline"> {album.title} </h1>
             {/* </div> */}
-            <div>
-              <div>
-                <Img
-                  className={'albumImage'}
-                  alt={album.title}
-                  fluid={album.albumCover.fluid}
-                />
-              </div>
-              <div
-                style={{ width: '100%', marginTop: '20px' }}
-                dangerouslySetInnerHTML={{
-                  __html: album.playerEmbed.childMarkdownRemark.html,
-                }}
-              />
-            </div>
+
             <div
               style={{
                 display: 'flex',
@@ -88,7 +74,23 @@ class AlbumTemplate extends React.Component {
                 flexWrap: 'wrap',
               }}
             >
-              <div style={{ flex: 3 }}>
+              <div style={{ flex: 2, minWidth: '300px' }}>
+                <div>
+                  <div>
+                    <Img
+                      className={'albumImage'}
+                      alt={album.title}
+                      fluid={album.albumCover.fluid}
+                      style={{ maxWidth: '500px' }}
+                    />
+                  </div>
+                  <div
+                    style={{ maxWidth: '500px', marginTop: '20px' }}
+                    dangerouslySetInnerHTML={{
+                      __html: album.playerEmbed.childMarkdownRemark.html,
+                    }}
+                  />
+                </div>
                 <Accordion allowZeroExpanded>
                   {tracks &&
                     tracks.map(track => (
@@ -123,7 +125,7 @@ class AlbumTemplate extends React.Component {
                     ))}
                 </Accordion>
               </div>
-              <div style={{ flex: 2 }}>
+              <div style={{ flex: 1, marginLeft: '75px' }}>
                 <b>Release Date</b>
                 <p
                   style={{
