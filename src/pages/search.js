@@ -6,7 +6,18 @@ import {
   SearchBox,
   Hits,
   Highlight,
+  Panel,
+  RefinementList,
+  Index,
+  PoweredBy,
+  Snippet,
 } from 'react-instantsearch-dom'
+
+//import 'instantsearch.css/themes/reset.css'
+// include the full Algolia theme
+import 'instantsearch.css/themes/algolia.css'
+
+import './search.css'
 
 import Layout from '../components/layout'
 const algoliaClient = algoliasearch(
@@ -16,27 +27,101 @@ const algoliaClient = algoliasearch(
 
 const searchClient = {
   search(requests) {
-    const shouldSearch = requests.some(({ params: { query } }) => query !== '')
-    if (shouldSearch) {
-      return algoliaClient.search(requests)
-    }
-    return Promise.resolve({
-      results: [{ hits: [] }],
+    const newRequests = requests.map(request => {
+      // test for empty string and do not trigger search if true
+      if (!request.params.query || request.params.query.length === 0) {
+        return
+      }
+      return request
     })
+    return algoliaClient.search(newRequests)
   },
-  searchForFacetValues: algoliaClient.searchForFacetValues,
 }
 
-const Hit = function(props) {
+// const searchClient = {
+//   search(requests) {
+//     const shouldSearch = requests.some(({ params: { query } }) => query !== '')
+//     if (shouldSearch) {
+//       return algoliaClient.search(requests)
+//     }
+//     return Promise.resolve({
+//       results: [{ hits: [] }],
+//     })
+//   },
+//   searchForFacetValues: algoliaClient.searchForFacetValues,
+// }
+
+const SongHits = function(props) {
+  return (
+    <div
+      style={{
+        width: '1000px',
+      }}
+    >
+      {/* <img src={props.hit.image} align="left" alt={props.hit.name} /> */}
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          minWidth: '300px',
+        }}
+      >
+        <div
+          style={{
+            minWidth: '100px',
+            display: 'flex',
+            flexDirection: 'column',
+            padding: '10px',
+          }}
+        >
+          <div style={{ width: '100px' }}>
+            <Link to={`/album/${props.hit.album[0].slug}`}>
+              <img src={props.hit.album[0].alumbCoverUrl} />
+            </Link>
+          </div>
+        </div>
+        <div style={{ padding: '10px' }}>
+          <Link to={`/song/${props.hit.slug}`}> {props.hit.songTitle} </Link>
+          <br />
+          <Snippet
+            attribute={'lyrics.json.content.0.content.0.value'}
+            hit={props.hit}
+          />
+        </div>
+      </div>
+      {/* <div className="hit-description">
+        <pre>{props.hit.lyrics.content[0].content[0].value}</pre>
+      </div> */}
+    </div>
+  )
+}
+
+const AlbumHits = function(props) {
   return (
     <div>
-      {/* <img src={props.hit.image} align="left" alt={props.hit.name} /> */}
-      <div>
-        <Link to={`/song/${props.hit.slug}`}> {props.hit.songTitle} </Link>
+      <div style={{ display: 'flex', flexWrap: 'wrap', minWidth: '300px' }}>
+        <div
+          style={{
+            minWidth: '100px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignContent: 'center',
+            justifyContent: 'center',
+            padding: '10px',
+          }}
+        >
+          <div style={{ width: '100px' }}>
+            <img src={props.hit.alumbCoverUrl} />
+          </div>
+          {/*<div style={{ width: '100px' }}>{props.hit.songTitle}</div> */}
+        </div>
+        <div style={{ padding: '10px' }}>
+          <Link to={`/song/${props.hit.slug}`}> {props.hit.title} </Link>
+        </div>
       </div>
-      <div className="hit-description">
+      {/* <div className="hit-description">
         <pre>{props.hit.lyrics.content[0].content[0].value}</pre>
-      </div>
+      </div> */}
     </div>
   )
 }
@@ -48,15 +133,20 @@ class SearchPage extends React.Component {
         <div
           style={{
             background: '#fff',
+            padding: '30px',
           }}
         >
           <InstantSearch
             searchClient={searchClient}
-            indexName="song"
+            indexName="songs"
             autoSearch={false}
           >
             <SearchBox />
-            <Hits hitComponent={Hit} />
+            <PoweredBy />
+            <Index indexName="songs">
+              <p>Songs</p>
+              <Hits hitComponent={SongHits} />
+            </Index>
           </InstantSearch>
         </div>
       </Layout>

@@ -81,11 +81,11 @@ class AlbumTemplate extends React.Component {
                       className={'albumImage'}
                       alt={album.title}
                       fluid={album.albumCover.fluid}
-                      style={{ maxWidth: '500px' }}
+                      style={{ maxWidth: '450px' }}
                     />
                   </div>
                   <div
-                    style={{ maxWidth: '500px', marginTop: '20px' }}
+                    style={{ maxWidth: '450px', marginTop: '20px' }}
                     dangerouslySetInnerHTML={{
                       __html: album.playerEmbed.childMarkdownRemark.html,
                     }}
