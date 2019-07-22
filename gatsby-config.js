@@ -44,23 +44,6 @@ module.exports = {
         chunkSize: 10000, // default: 1000
       },
     },
-    {
-      resolve: `gatsby-source-git`,
-      options: {
-        name: `content`,
-        remote: `https://github.com/hartmamt/pinegrove-content.git`,
-        // Multiple patterns and negation supported. See https://github.com/mrmlnc/fast-glob
-        patterns: [`*`, `!*.md`]
-        //patterns: ['docs/authors/*.md', 'docs/editorials/*.md', 'docs/about/*.md', 'docs/articles/*.md'],
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'content',
-        path: `${__dirname}/.cache/gatsby-source-git/`,
-      },
-    },
     // `gatsby-plugin-styled-components`,
   ],
 }
