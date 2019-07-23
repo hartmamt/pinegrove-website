@@ -17,7 +17,7 @@ export default function HTML(props) {
           integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8="
           crossOrigin="anonymous"
         />
-
+        <script async src="//genius.codes"></script>
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
