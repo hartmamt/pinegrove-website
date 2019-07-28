@@ -17,9 +17,14 @@ export default () => {
     <nav role="navigation">
       <div>
         <div>
-          <ul className={styles.navigation}>
+          <ul
+            className={styles.navigation}
+            style={{ height: '5vh', fontSize: '40px', paddingTop: '8px' }}
+          >
             <li className={styles.navigationItem}>
-              <Link to="/"> amperland </Link>{' '}
+              <Link to="/" style={{ textDecoration: 'none' }}>
+                amperland
+              </Link>
             </li>
           </ul>
         </div>
@@ -46,18 +51,30 @@ export default () => {
           </Menu>
         ) : (
           <div>
-            <ul className={styles.navigation}>
+            <ul className={styles.navigation} style={{ height: '20px' }}>
               <li className={styles.navigationItem}>
-                <Link to="/press/"> press </Link>{' '}
+                <Link to="/press/" style={{ textDecoration: 'none' }}>
+                  {' '}
+                  press{' '}
+                </Link>{' '}
               </li>
               <li className={styles.navigationItem}>
-                <Link to="/live/"> live </Link>{' '}
+                <Link to="/live/" style={{ textDecoration: 'none' }}>
+                  {' '}
+                  live{' '}
+                </Link>{' '}
               </li>
               <li className={styles.navigationItem}>
-                <Link to="/albums/"> recorded </Link>{' '}
+                <Link to="/albums/" style={{ textDecoration: 'none' }}>
+                  {' '}
+                  recorded{' '}
+                </Link>{' '}
               </li>
               <li className={styles.navigationItem}>
-                <Link to="/search/"> search </Link>{' '}
+                <Link to="/search/" style={{ textDecoration: 'none' }}>
+                  {' '}
+                  search{' '}
+                </Link>{' '}
               </li>
             </ul>
           </div>

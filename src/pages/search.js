@@ -138,7 +138,6 @@ class SearchPage extends React.Component {
       <Layout location={this.props.location}>
         <div
           style={{
-            background: '#fff',
             padding: '30px',
           }}
         >

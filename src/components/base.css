@@ -1,17 +1,21 @@
-@font-face {
-  font-family: "Avenir";
+@import url('https://fonts.googleapis.com/css?family=Special+Elite&display=swap');
+
+/* @font-face {
+  font-family: 'Special Elite', cursive;
   font-weight: 400;
   font-style: normal;
-  src: url("/avenir-400.woff2") format("woff2");
+  src: url("/avenir-400.woff2") format("woff2"); 
   font-display: swap;
-}
+} */
+
 
 body {
-  font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
+  /* font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif; */
+  font-family: 'Special Elite', cursive;
   font-size: 1em;
   line-height: 1.65;
   color: #373F49;
-  background: #eee;
+  background: #99d9f5;
   margin: 0;
 }
 
