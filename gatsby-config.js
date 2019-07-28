@@ -24,6 +24,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'Amperland',
+    siteUrl: 'https://amperland.netlify.com'
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
@@ -42,6 +43,19 @@ module.exports = {
         apiKey: process.env.ALGOLIA_ADMIN_KEY || 'f6e0a6927130f0e28447995468efff0e',
         queries,
         chunkSize: 10000, // default: 1000
+      },
+    },
+    `gatsby-plugin-remove-trailing-slashes`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/my-site-map.xml`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        sitemapPath: `/my-site-map.xml`,
       },
     },
     // `gatsby-plugin-styled-components`,

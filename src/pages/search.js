@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import get from 'lodash/get'
 import algoliasearch from 'algoliasearch/lite'
+
+import Helmet from 'react-helmet'
+import Hero from '../components/hero'
 import {
   InstantSearch,
   SearchBox,
@@ -81,7 +85,7 @@ const SongHits = function(props) {
           </div>
         </div>
         <div style={{ padding: '10px' }}>
-          <Link to={`/song/${props.hit.slug}`}> {props.hit.songTitle} </Link>
+          <Link to={`/song/${props.hit.slug}`}> {props.hit.songTitle}</Link>
           <br />
           <Snippet
             attribute={'lyrics.json.content.0.content.0.value'}
@@ -128,6 +132,8 @@ const AlbumHits = function(props) {
 
 class SearchPage extends React.Component {
   render() {
+    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+
     return (
       <Layout location={this.props.location}>
         <div
@@ -136,6 +142,7 @@ class SearchPage extends React.Component {
             padding: '30px',
           }}
         >
+          <Helmet title={siteTitle} />
           <InstantSearch
             searchClient={searchClient}
             indexName="songs"
@@ -155,3 +162,13 @@ class SearchPage extends React.Component {
 }
 
 export default SearchPage
+
+export const pageQuery = graphql`
+  query SearchQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`

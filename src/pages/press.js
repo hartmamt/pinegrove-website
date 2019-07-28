@@ -6,7 +6,7 @@ import styles from './album.module.css'
 import Layout from '../components/layout'
 import AlbumPreview from '../components/album-preview'
 
-class AlbumIndex extends React.Component {
+class PressIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const albums = get(this, 'props.data.allContentfulAlbum.edges')
@@ -19,15 +19,16 @@ class AlbumIndex extends React.Component {
           }}
         >
           <Helmet title={siteTitle} />{' '}
-          {/* <div className={styles.hero}>Albums </div>{' '} */}
+          {/* <div className={styles.hero}>Albums </div>{' '} */}{' '}
           <div className="wrapper">
-            <h2 className="section-headline"> recorded </h2>{' '}
+            <h2 className="section-headline"> press </h2>{' '}
             <ul className="article-list">
               {' '}
               {albums.map(({ node }) => {
                 return (
                   <li key={node.slug}>
-                    <AlbumPreview album={node} />
+                    {' '}
+                    {/* <AlbumPreview album={node} /> */}{' '}
                   </li>
                 )
               })}{' '}
@@ -39,10 +40,10 @@ class AlbumIndex extends React.Component {
   }
 }
 
-export default AlbumIndex
+export default PressIndex
 
 export const pageQuery = graphql`
-  query AlbumIndexQuery {
+  query PressIndexQuery {
     site {
       siteMetadata {
         title
