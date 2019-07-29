@@ -1,0 +1,45 @@
+.setlistPreview {
+  display: flex;
+  align-content: space-between;
+  padding: 10px;
+}
+
+.details {
+  margin: 10px;
+}
+
+.dateBlock {
+  border-radius: 3px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #000;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  min-width: 85px;
+}
+
+.dateBlock.condensed {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  min-width: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dateBlock>span.month {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+.dateBlock>span.day {
+  font-size: 30px;
+  line-height: 100%;
+}
+
+.dateBlock>span.year {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
