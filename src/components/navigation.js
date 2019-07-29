@@ -42,6 +42,9 @@ export default () => {
             <Link to="/albums/" className="menu-item">
               recorded
             </Link>
+            <a href={'https://amperland.gokinjo.space/'} className="menu-item">
+              community
+            </a>
             <Link to="/search/" className="menu-item">
               search
             </Link>
@@ -69,6 +72,14 @@ export default () => {
                   {' '}
                   recorded{' '}
                 </Link>{' '}
+              </li>
+              <li className={styles.navigationItem}>
+                <a
+                  href={'https://amperland.gokinjo.space/'}
+                  style={{ textDecoration: 'none' }}
+                >
+                  community
+                </a>
               </li>
               <li className={styles.navigationItem}>
                 <Link to="/search/" style={{ textDecoration: 'none' }}>
