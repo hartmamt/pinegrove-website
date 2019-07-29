@@ -23,11 +23,7 @@ class SongTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <div
-          style={{
-            background: '#fff',
-          }}
-        >
+        <div>
           <Helmet title={`${song.songTitle} | ${siteTitle}`} />{' '}
           <div className="wrapper">
             <h1 className="section-headline"> {song.songTitle} </h1>{' '}
