@@ -11,18 +11,11 @@ import {
   AccordionItemPanel,
 } from 'react-accessible-accordion'
 
-// Demo styles, see 'Styles' section below for some notes on use.
-//import 'react-accessible-accordion/dist/fancy-example.css'
-
-import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import Layout from '../components/layout'
-import DiscussionBox from '../components/DiscussionBox'
-import SoundPlayer from '../components/SoundPlayer'
-import heroStyles from '../components/hero.module.css'
 
-import './album.css'
+//import './album.css'
 
 const Bold = ({ children }) => <p className="bold">{children}</p>
 
@@ -36,7 +29,7 @@ const options = {
   },
 }
 
-class AlbumTemplate extends React.Component {
+class ShowTemplate extends React.Component {
   render() {
     const album = get(this.props, 'data.contentfulAlbum')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
@@ -147,10 +140,10 @@ class AlbumTemplate extends React.Component {
   }
 }
 
-export default AlbumTemplate
+export default ShowTemplate
 
 export const pageQuery = graphql`
-  query AlbumPostBySlug($slug: String!) {
+  query ShowPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title
