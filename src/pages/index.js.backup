@@ -2,21 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import { useMediaQuery } from 'react-responsive'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
-import PinegroveGrid from '../components/pinegrove-grid'
 import AlbumPreview from '../components/album-preview'
-
-const links = [
-  { location: '/press/', text: 'media' },
-  { location: '/live/', text: 'live' },
-  { location: '/albums/', text: 'albums' },
-  { location: 'https://amperland.gokinjo.space/', text: 'community' },
-  { location: '/search/', text: 'search' },
-]
-const desktopLocations = [1,6,9,11,12]
-const mobileLocations = [0,1,2,5,6]
 
 class RootIndex extends React.Component {
   render() {
@@ -29,9 +17,18 @@ class RootIndex extends React.Component {
       <Layout location={this.props.location} crumbLabel="Home">
         <div>
           <Helmet title={siteTitle} />
+          <Hero data={author.node} />
           <div className="wrapper">
-            <h1 className="section-headline">hello & welcome</h1>
-            <PinegroveGrid links={links} desktopLocations={desktopLocations} mobileLocations={mobileLocations}/>
+            <h2 className="section-headline">Recent Albums</h2>
+            <ul className="article-list">
+              {albums.map(({ node }) => {
+                return (
+                  <li key={node.slug}>
+                    <AlbumPreview album={node} />
+                  </li>
+                )
+              })}
+            </ul>
           </div>
         </div>
       </Layout>

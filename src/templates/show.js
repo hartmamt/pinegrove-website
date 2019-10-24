@@ -150,7 +150,7 @@ class AlbumTemplate extends React.Component {
 export default AlbumTemplate
 
 export const pageQuery = graphql`
-  query AlbumPostBySlug($slug: String!) {
+  query ShowPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title
