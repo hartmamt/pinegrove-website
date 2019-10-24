@@ -19,7 +19,7 @@ class Template extends React.Component {
 
     return (
       <Container>
-        <Navigation />
+        {/*<Navigation />*/}
         {children}
         {/* <SitemapCrumbs crumbs={crumbs} crumbSeparator=" - " /> */}
       </Container>

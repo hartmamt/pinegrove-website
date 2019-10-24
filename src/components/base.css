@@ -1,21 +1,37 @@
-@import url('https://fonts.googleapis.com/css?family=Special+Elite&display=swap');
 
 /* @font-face {
   font-family: 'Special Elite', cursive;
   font-weight: 400;
   font-style: normal;
-  src: url("/avenir-400.woff2") format("woff2"); 
+  src: url("/avenir-400.woff2") format("woff2");
   font-display: swap;
 } */
+
+@font-face {
+  font-family: 'pinegroveregular';
+  src: url('../fonts/pinegrove-regular-webfont.woff2') format('woff2'),
+       url('../fonts/pinegrove-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+/** COLOR REFERENCE
+* gray - #a6a4a5
+* dark blue - #003d5c
+* light blue - #67c6dc
+* yellow - #fecd07
+* red - #ec2127
+*/
 
 
 body {
   /* font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif; */
-  font-family: 'Special Elite', cursive;
+  font-family: 'Courier New', Courier, monospace, serif;
   font-size: 1em;
   line-height: 1.65;
-  color: #373F49;
-  background: #99d9f5;
+  color: #003d5c;
+  background: #a6a4a5;
   margin: 0;
 }
 
@@ -27,9 +43,11 @@ img {
 h1,
 h2,
 h3 {
+  font-family: 'pinegroveregular', serif;
   font-size: 2em;
   font-weight: normal;
 }
+
 
 h4 {
   font-size: 1.5em;
@@ -62,9 +80,10 @@ a {
  *
  */
 .section-headline {
-  padding: 0 0 0.4em 0;
-  margin: 0 0 5vmin 0;
-  border-bottom: 1px solid #000;
+  font-size: 6em;
+  line-height: 1em;
+  text-align: center;
+  margin: 2rem 0;
 }
 
 /**
@@ -78,4 +97,59 @@ a {
 
 .list-inline li {
   display: inline-block;
+}
+
+.pinegrove-grid {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 22%);
+  grid-gap: 4%;
+}
+
+.pinegrove-grid-mobile {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 48%);
+  grid-gap: 4%;
+}
+
+.pinegrove-grid-link {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  text-shadow: 2px 2px #737172;
+}
+
+
+.pinegrove-grid-link.dark {
+  color: #D9D7D8;
+}
+
+.pinegrove-grid-link-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (max-width: 400px) {
+  .section-headline {
+    font-size: 2em;
+  }
+}
+
+@media only screen and (min-width: 401px) and (max-width: 600px) {
+  .section-headline {
+    font-size: 3em;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .section-headline {
+    font-size: 4em;
+  }
 }
