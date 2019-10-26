@@ -17,7 +17,13 @@ export default function HTML(props) {
           integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8="
           crossOrigin="anonymous"
         />
-        <script async src="//genius.codes"></script>
+        {/* <script async src="//genius.codes"></script> */}
+        <script
+          charSet="utf-8"
+          src="https://widget.bandsintown.com/main.min.js"
+        >
+          {' '}
+        </script>
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
