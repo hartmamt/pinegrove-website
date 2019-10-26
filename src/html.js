@@ -18,12 +18,10 @@ export default function HTML(props) {
           crossOrigin="anonymous"
         />
         {/* <script async src="//genius.codes"></script> */}
-        <script
+        {/* <script
           charSet="utf-8"
           src="https://widget.bandsintown.com/main.min.js"
-        >
-          {' '}
-        </script>
+        ></script> */}
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>

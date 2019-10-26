@@ -7,45 +7,85 @@ import styles from './live.module.css'
 import Layout from '../components/layout'
 import AlbumPreview from '../components/album-preview'
 
-const LiveIndex = props => {
-  console.log('prop', props)
-  const siteTitle = get(props, 'data.site.siteMetadata.title')
-  const shows = get(props, 'data.allContentfulLivePerformance.edges')
-  const songs = shows.setListSongs
-  const isTabletOrMobileDevice = useMediaQuery({
-    query: '(max-device-width: 1224px)',
-  })
+const loadBandsInTown = callback => {
+  const existingScript = document.getElementById('bandsInTown')
 
-  return (
-    <Layout location={props.location}>
-      <div>
-        <Helmet title={siteTitle} />{' '}
-        <div className="wrapper">
-          <h2 className="section-headline"> live </h2>{' '}
-          <div className="col s12 m6">
-            <div className="center-align">
-              <h1> TOUR </h1>{' '}
-            </div>{' '}
-            <a
-              className="bit-widget-initializer"
-              data-artist-name="Pinegrove"
-              data-display-local-dates="false"
-              data-display-past-dates="false"
-              data-auto-style="false"
-              data-text-color="#334e5b"
-              data-link-color="#bf0000"
-              data-background-color="rgba(0,0,0,0)"
-              data-display-limit="7"
-              data-link-text-color="#FFFFFF"
-              data-display-lineup="false"
-              data-display-play-my-city="false"
-              data-separator-color="rgba(124,124,124,0.25)"
-            ></a>
-          </div>
+  if (!existingScript) {
+    const script = document.createElement('script')
+    script.src = 'https://widget.bandsintown.com/main.min.js'
+    script.id = 'bandsInTown'
+    document.body.appendChild(script)
+
+    script.onload = () => {
+      if (callback) callback()
+    }
+  }
+
+  if (existingScript && callback) callback()
+}
+
+class LiveIndex extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { bandsInTownReady: false }
+    // const isTabletOrMobileDevice = useMediaQuery({
+    //   query: '(max-device-width: 1224px)',
+    // })
+  }
+
+  componentWillMount() {
+    loadBandsInTown(() => {
+      // Work to do after the library loads.
+      this.setState({ bandsInTownReady: true })
+    })
+  }
+
+  render() {
+    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const shows = get(this.props, 'data.allContentfulLivePerformance.edges')
+    const songs = shows.setListSongs
+
+    return (
+      <Layout location={this.props.location}>
+        <div>
+          <Helmet title={siteTitle} />{' '}
+          <div className="wrapper">
+            <h2 className="section-headline"> live </h2>
+            <div className="col s12 m6">
+              <div className="center-align">
+                <h1> TOUR </h1>{' '}
+              </div>{' '}
+              {this.state.bandsInTownReady ? (
+                <div
+                  style={{ maxWidth: '450px', marginTop: '20px' }}
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      '<a class="bit-widget-initializer" data-artist-name="Pinegrove" data-display-local-dates="false" data-display-past-dates="false" data-auto-style="false" data-text-color="#334e5b" data-link-color="#bf0000" data-background-color="rgba(0,0,0,0)" data-display-limit="7" data-link-text-color="#FFFFFF" data-display-lineup="false" data-display-play-my-city="false" data-separator-color="rgba(124,124,124,0.25)"></a>',
+                  }}
+                />
+              ) : // <a
+              //   className="bit-widget-initializer"
+              //   data-artist-name="Pinegrove"
+              //   data-display-local-dates="false"
+              //   data-display-past-dates="false"
+              //   data-auto-style="false"
+              //   data-text-color="#334e5b"
+              //   data-link-color="#bf0000"
+              //   data-background-color="rgba(0,0,0,0)"
+              //   data-display-limit={7}
+              //   data-link-text-color="#FFFFFF"
+              //   data-display-lineup="false"
+              //   data-display-play-my-city="false"
+              //   data-separator-color="rgba(124,124,124,0.25)"
+              // />
+              null}
+              {/* */}
+            </div>
+          </div>{' '}
         </div>{' '}
-      </div>{' '}
-    </Layout>
-  )
+      </Layout>
+    )
+  }
 }
 
 // class LiveIndex extends React.Component {
