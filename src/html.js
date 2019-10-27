@@ -56,6 +56,10 @@ export default function HTML(props) {
           href="https://fonts.googleapis.com/css?family=Special+Elite&amp;display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css?family=Oswald&amp;display=swap"
+          rel="stylesheet"
+        />
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link
           rel="stylesheet"

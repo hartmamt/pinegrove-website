@@ -15,7 +15,7 @@ const links = [
   { location: '/store/', text: 'store' },
   { location: '/search/', text: 'search' },
   { location: '/albums/', text: 'recorded' },
-  { location: '/live/', text: 'tour archive' },
+  { location: '/tour-archive/', text: 'tour archive' },
   { location: '/articles/', text: 'media' },
   { location: 'https://amperland.gokinjo.space/', text: 'community' },
 ]

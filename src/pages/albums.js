@@ -32,34 +32,13 @@ class AlbumIndex extends React.Component {
     })
     return (
       <Layout location={this.props.location}>
-        <div
-          style={
-            {
-              // background: '#fff',
-            }
-          }
-        >
+        <div>
           <Helmet title={siteTitle} />
           <header id>
             <h1>recorded</h1>
           </header>
-          <PinegroveGrid links={links} />
-          {/* <div className={styles.hero}>Albums </div>{' '} */}
-          {/*           
-          <div className="wrapper">
-            <h2 className="section-headline"> recorded </h2>{' '}
-            <ul className="article-list">
-              {' '}
-              {albums.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <AlbumPreview album={node} />
-                  </li>
-                )
-              })}{' '}
-            </ul>{' '}
-          </div>{' '} */}
-        </div>{' '}
+          <PinegroveGrid links={links} colorOverride={'red'} />
+        </div>
       </Layout>
     )
   }
