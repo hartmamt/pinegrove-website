@@ -35,7 +35,7 @@ class TicketIndex extends React.Component {
     // })
   }
 
-  componentWillMount() {
+  componentDidMount() {
     loadBandsInTown(() => {
       // Work to do after the library loads.
       this.setState({
@@ -46,8 +46,6 @@ class TicketIndex extends React.Component {
 
   render() {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-    const shows = get(this.props, 'data.allContentfulLivePerformance.edges')
-    const songs = shows.setListSongs
 
     return (
       <Layout location={this.props.location}>
@@ -186,26 +184,12 @@ class TicketIndex extends React.Component {
 
 export default TicketIndex
 
-// export const pageQuery = graphql`
-//   query LiveIndexQuery {
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//     allContentfulLivePerformance(sort: { fields: [date], order: DESC }) {
-//       edges {
-//         node {
-//           venue
-//           slug
-//           date
-//           citystatecountry
-//           setListSongs {
-//             songTitle
-//             slug
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export const pageQuery = graphql`
+  query TicketIndexQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`

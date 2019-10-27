@@ -23,13 +23,16 @@ const links = [
 const gridLocations = [1, 6, 9, 11, 12]
 
 class RootIndex extends React.Component {
+  componentDidMount() {
+    AOS.init()
+  }
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const albums = get(this, 'props.data.allContentfulAlbum.edges')
     //console.log(get(this, 'props.data.allContentfulPerson.edges'))
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
 
-    AOS.init()
+    // AOS.init()
 
     return (
       <Layout location={this.props.location} crumbLabel="Home">

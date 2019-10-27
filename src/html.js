@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import AOS from 'aos'
+//import AOS from 'aos'
 import './pages/pinegrove.css'
 
 export default function HTML(props) {
