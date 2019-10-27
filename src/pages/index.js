@@ -19,7 +19,6 @@ const links = [
   { location: '/articles/', text: 'media' },
   { location: 'https://amperland.gokinjo.space/', text: 'community' },
 ]
-const gridLocations = [1, 6, 9, 11, 12]
 
 class RootIndex extends React.Component {
   componentDidMount() {
@@ -49,7 +48,7 @@ class RootIndex extends React.Component {
           <header id>
             <h1>hello & welcome</h1>
           </header>
-          <PinegroveGrid links={links} gridLocations={gridLocations} />
+          <PinegroveGrid links={links} />
         </div>
       </Layout>
     )

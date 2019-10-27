@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import AOS from 'aos'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -19,6 +20,9 @@ import Container from './container'
 import Navigation from './navigation'
 
 class Template extends React.Component {
+  componentDidMount() {
+    AOS.init()
+  }
   render() {
     const { location, children } = this.props
     let header
@@ -35,7 +39,7 @@ class Template extends React.Component {
       <Container>
         {/* <Navigation /> */}
         <div id="site-container">
-          {children}{' '}
+          {children}
           {/* <SitemapCrumbs crumbs={crumbs} crumbSeparator=" - " /> */}{' '}
           <footer id>
             <nav id="bottom">

@@ -1,16 +1,18 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 import { useMediaQuery } from 'react-responsive'
 import { pinegroveGrid } from '../helpers/pinegroveGridBuilder'
 
 export default ({ links, gridLocations }) => {
-  // gridLocations.forEach((location, index) => {
-  //   pinegroveGrid[location].link = links[index]
-  // })
+  pinegroveGrid.forEach((location, index) => {
+    pinegroveGrid[index].link = links[index]
+  })
 
   return (
     <div id="square-container" data-aos="fade" data-aos-delay="200">
       {pinegroveGrid.map(element => {
+        //console.log(element.link.image.src)
         if (element.link) {
           if (element.link.location.includes('http')) {
             return (
@@ -28,9 +30,17 @@ export default ({ links, gridLocations }) => {
               className={`square ${element.color}`}
               to={element.link.location}
               key={element.link.location}
+              style={
+                element.link.image
+                  ? {
+                      backgroundImage: 'url("' + element.link.image.src + '")',
+                    }
+                  : null
+              }
             >
-              {/* <img src={element.image} /> */}
-              <div className="square-text">{element.link.text}</div>
+              {element.link.image ? null : (
+                <div className="square-text">{element.link.text}</div>
+              )}
             </Link>
           )
         } else {

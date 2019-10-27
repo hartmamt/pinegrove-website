@@ -38,7 +38,6 @@ class LiveIndex extends React.Component {
             <h2 className="section-headline"> live </h2>
             <div>
               {shows.map(({ node }) => {
-                console.log(node.setListSongs && node.setListSongs.join(' '))
                 const shortMonths = [
                   'Jan',
                   'Feb',

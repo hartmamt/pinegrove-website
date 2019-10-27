@@ -1,66 +1,42 @@
 export const pinegroveGrid = [{
     color: 'light-blue',
     type: 'light',
-    link: {
-      location: '/pre/',
-      text: 'pre-order marigold'
-    },
+    link: undefined,
   },
   {
     color: 'red',
     type: 'dark',
-    link: {
-      location: '/tickets/',
-      text: 'get tickets'
-    },
+    link: undefined,
   },
   {
     color: 'yellow',
     type: 'light',
-    link: {
-      location: '/store/',
-      text: 'store'
-    },
+    link: undefined,
   },
   {
     color: 'dark-blue',
     type: 'dark',
-    link: {
-      location: '/search/',
-      text: 'search'
-    },
+    link: undefined,
   },
   {
     color: 'red',
     type: 'dark',
-    link: {
-      location: '/albums/',
-      text: 'recorded'
-    },
+    link: undefined,
   },
   {
     color: 'yellow',
     type: 'light',
-    link: {
-      location: '/live/',
-      text: 'tour archive'
-    },
+    link: undefined,
   },
   {
     color: 'dark-blue',
     type: 'dark',
-    link: {
-      location: '/articles/',
-      text: 'media'
-    },
+    link: undefined,
   },
   {
     color: 'light-blue',
     type: 'light',
-    link: {
-      location: 'https://amperland.gokinjo.space/',
-      text: 'community'
-    },
+    link: undefined,
   },
   {
     color: 'yellow',
