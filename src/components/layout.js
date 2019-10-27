@@ -1,5 +1,18 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+  fab,
+  faFacebook,
+  faInstagram,
+  faTwitter,
+  faYoutube,
+  faSpotify,
+  faItunes,
+  faBandcamp,
+} from '@fortawesome/free-brands-svg-icons'
+//import { faFacebook } from '@fortawesome/free-solid-svg-icons'
 import base from './base.css'
 import Container from './container'
 import Navigation from './navigation'
@@ -53,22 +66,22 @@ class Template extends React.Component {
             <ul>
               <li>
                 <a href="http://facebook.com/pinegroveband" target="_blank">
-                  <i className="fab fa-facebook" />
+                  <FontAwesomeIcon icon={faFacebook} />
                 </a>
               </li>
               <li>
                 <a href="http://instagram.com/pinegroveband" target="_blank">
-                  <i className="fab fa-instagram" />
+                  <FontAwesomeIcon icon={faInstagram} />
                 </a>
               </li>
               <li>
                 <a href="http://twitter.com/pinegroveband" target="_blank">
-                  <i className="fab fa-twitter" />
+                  <FontAwesomeIcon icon={faTwitter} />
                 </a>
               </li>
               <li>
                 <a href="http://youtube.com/user/PinegroveBand" target="_blank">
-                  <i className="fab fa-youtube" />
+                  <FontAwesomeIcon icon={faYoutube} />
                 </a>
               </li>
               <li>
@@ -76,7 +89,7 @@ class Template extends React.Component {
                   href="https://open.spotify.com/artist/2gbT6GPXMis0OAkZbEQCYB?si=OmDBSuoQQHK2f0OWL08Ucw"
                   target="_blank"
                 >
-                  <i className="fab fa-spotify" />
+                  <FontAwesomeIcon icon={faSpotify} />
                 </a>
               </li>
               <li>
@@ -84,12 +97,12 @@ class Template extends React.Component {
                   href="https://itunes.apple.com/gb/artist/pinegrove/1045791526"
                   target="_blank"
                 >
-                  <i className="fab fa-itunes" />
+                  <FontAwesomeIcon icon={faItunes} />
                 </a>
               </li>
               <li>
                 <a href="http://pinegrove.bandcamp.com/" target="_blank">
-                  <i className="fab fa-bandcamp" />
+                  <FontAwesomeIcon icon={faBandcamp} />
                 </a>
               </li>
             </ul>
