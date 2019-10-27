@@ -58,12 +58,12 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulAlbum {
+    allContentfulAlbum(sort: { fields: [releasedate], order: DESC }) {
       edges {
         node {
           title
           slug
-
+          releasedate
           albumCover {
             fluid(maxWidth: 500, maxHeight: 500, resizingBehavior: SCALE) {
               ...GatsbyContentfulFluid
