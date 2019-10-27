@@ -50,10 +50,17 @@ class TicketIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div>
-          <Helmet title={siteTitle} />{' '}
+          <Helmet title={siteTitle} />
+          <div className="back-link">
+            <a href="javascript:history.back();">
+              <img src="/img/arrow-back.svg" alt="Back" />
+            </a>
+          </div>
+          <header id>
+            <h1>tickets</h1>
+          </header>
           <div className="wrapper">
-            <h2 className="section-headline"> live </h2>{' '}
-            <div className="col s12 m6">
+            <div>
               <div className="center-align">
                 <h1> TOUR </h1>{' '}
               </div>{' '}

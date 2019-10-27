@@ -57,12 +57,81 @@ class AlbumTemplate extends React.Component {
           <Helmet title={`${album.title} | ${siteTitle}`} />
 
           {/* </div> */}
+          <div className="back-link">
+            <a href="javascript:history.back();">
+              <img src="/img/arrow-back.svg" alt="Back" />
+            </a>
+          </div>
+          <header id="">
+            <h1 data-aos="fade">{album.title}</h1>
+          </header>
+          <div className="container">
+            <div className="col">
+              <div className="album-image" data-aos="fade">
+                <img src={album.albumCover.fluid.src} alt="Cardinal" />
+              </div>
 
-          <div className="wrapper">
-            {/* <div className={heroStyles.hero}> */}
-            <h1 className="section-headline"> {album.title} </h1>
-            {/* </div> */}
-
+              <div className="bandcamp-embed">
+                <div
+                  style={{ maxWidth: '450px', marginTop: '20px' }}
+                  dangerouslySetInnerHTML={{
+                    __html: album.playerEmbed.childMarkdownRemark.html,
+                  }}
+                />
+              </div>
+            </div>
+            <div className="col" data-aos="fade">
+              <h2>tracks</h2>
+              <Accordion
+                allowZeroExpanded
+                className="accordion accordion-section"
+              >
+                {tracks &&
+                  tracks.map(track => (
+                    <AccordionItem>
+                      <AccordionItemHeading>
+                        <AccordionItemButton className="old-friends">
+                          <dt className="old-friends">{track.songTitle}</dt>
+                        </AccordionItemButton>
+                      </AccordionItemHeading>
+                      <AccordionItemPanel>
+                        <div className="accordion-content">
+                          <div
+                            style={{ width: '100%' }}
+                            dangerouslySetInnerHTML={{
+                              __html: track.audioEmbed.childMarkdownRemark.html,
+                            }}
+                          />
+                          <div className="accordion-content">
+                            <h3>Lyrics</h3>
+                            <pre>
+                              {documentToReactComponents(track.lyrics.json)}{' '}
+                            </pre>
+                          </div>
+                        </div>
+                      </AccordionItemPanel>
+                    </AccordionItem>
+                  ))}
+              </Accordion>
+            </div>
+          </div>
+          <div className="container">
+            <div className="col">
+              <b>Release Date</b>
+              <p
+                style={{
+                  display: 'block',
+                }}
+              >
+                {album.releasedate}
+              </p>
+              <b>Credits</b>
+              {documentToReactComponents(album.credits.json, options)}
+            </div>
+          </div>
+          {/* .container */}
+          {/*           
+          <div>
             <div
               style={{
                 display: 'flex',
@@ -133,15 +202,16 @@ class AlbumTemplate extends React.Component {
                 <b>Credits</b>
                 {documentToReactComponents(album.credits.json, options)}
               </div>
-            </div>
+            </div> 
           </div>
+                */}
           {/* <DiscussionBox
             discourseUrl={'https://amperland.gokinjo.space/'}
             discourseEmbedUrl={
               'https://amperland.gokinjo.space/t/skylight-album-discussion/25'
             }
           /> */}
-        </div>{' '}
+        </div>
       </Layout>
     )
   }

@@ -29,6 +29,11 @@ class TourArchiveIndex extends React.Component {
       <Layout location={this.props.location}>
         <div>
           <Helmet title={siteTitle} />
+          <div className="back-link">
+            <a href="javascript:history.back();">
+              <img src="/img/arrow-back.svg" alt="Back" />
+            </a>
+          </div>
           <header id>
             <h1> tour archive </h1>
           </header>
