@@ -8,7 +8,6 @@ import Hero from '../components/hero'
 import Layout from '../components/layout'
 import PinegroveGrid from '../components/pinegrove-grid'
 import AlbumPreview from '../components/album-preview'
-import './pinegrove.css'
 
 const links = [
   { location: '/pre/', text: 'pre-order marigold' },
@@ -44,14 +43,13 @@ class RootIndex extends React.Component {
           screen_capture_injected="true"
         >
           <Helmet title={siteTitle} />
-          <div id="site-container">
-            {/* <h1 className="section-headline">hello & welcome</h1> */}
 
-            <header id>
-              <h1>hello & welcome</h1>
-            </header>
-            <PinegroveGrid links={links} gridLocations={gridLocations} />
-          </div>
+          {/* <h1 className="section-headline">hello & welcome</h1> */}
+
+          <header id>
+            <h1>hello & welcome</h1>
+          </header>
+          <PinegroveGrid links={links} gridLocations={gridLocations} />
         </div>
       </Layout>
     )
