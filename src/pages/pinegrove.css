@@ -348,13 +348,12 @@ td {
 }
 
 p,
-h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 20px 0;
+  margin: 0 0 1rem 0;
   line-height: 1.3;
 }
 
@@ -369,6 +368,14 @@ h1 {
   font-weight: normal;
   text-align: center;
   margin: 0;
+  line-height: 1;
+  letter-spacing: -0.5rem;
+}
+
+h1 span {
+  font: 1.5rem 'Special Elite', monospace;
+  letter-spacing: normal;
+  display: block;
 }
 
 h2 {
@@ -376,9 +383,21 @@ h2 {
   font-weight: normal;
 }
 
+.col h2 {
+  padding-top: 2rem;
+}
+
+.col h2:first-child {
+  padding-top: 0;
+}
+
 h3 {
   font-size: 1.8rem;
   font-weight: normal;
+}
+
+.text-center {
+  text-align: center;
 }
 
 b,
@@ -565,7 +584,7 @@ nav#social ul li a:hover {
 
 nav#social ul li a {
   padding: 5px;
-  font-size: 30px;
+  font-size: 2rem;
 }
 
 
@@ -714,13 +733,19 @@ nav#social ul li a {
 }
 
 /* =============================================================================
-      IMAGES
+      GALLERY
       ========================================================================== */
 
-a:hover img {
-  -webkit-filter: brightness(1.05);
-  filter: brightness(1.05);
+.gallery {}
+
+.gallery img {
+  max-width: 100px;
+  height: auto;
 }
+
+/* =============================================================================
+      IMAGES
+      ========================================================================== */
 
 audio,
 canvas,
@@ -745,6 +770,13 @@ img {
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+a:hover img {
+  -webkit-filter: brightness(1.05);
+  filter: brightness(1.05);
 }
 
 .photo-left {
@@ -769,7 +801,7 @@ img {
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
-  padding-top: 30px;
+  padding-top: 2rem;
   height: 0;
   overflow: hidden;
 }
@@ -890,24 +922,18 @@ optgroup {
       ========================================================================== */
 
 
-@media (min-width: 0px) and (max-width: 1360px) {
+@media (min-width: 0px) and (max-width: 1364px) {
 
   body {
-    margin: 0 30px;
+    margin: 0 2rem;
   }
 
   #square-container .square {
-    width: 30%;
-    margin: 1rem;
-  }
-
-}
-
-@media (min-width: 0px) and (max-width: 1260px) {
-
-  #square-container .square {
-    width: 45%;
     margin: 0.5rem;
+  }
+
+  #square-container .square-text {
+    font: 1.8rem 'Pinegrove', monospace;
   }
 
 }
@@ -938,7 +964,7 @@ optgroup {
 
   nav#social ul li a {
     padding: 5px;
-    font-size: 30px;
+    font-size: 2rem;
   }
 
   .back-link img {
@@ -973,7 +999,7 @@ optgroup {
 
 }
 
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 960px) {
 
   body {
     margin: 0 10px;
@@ -995,13 +1021,13 @@ optgroup {
     font-size: 3rem;
   }
 
-  #square-container .square-text {
-    font: 1.5rem 'Pinegrove', monospace;
+  #square-container .square {
+    margin: 0.4rem;
+    width: 44%;
   }
 
-  #square-container .square {
-    width: 44%;
-    margin: 0.4rem;
+  #square-container .square-text {
+    font: 1.5rem 'Pinegrove', monospace;
   }
 
 }

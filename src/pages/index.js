@@ -12,7 +12,7 @@ import AlbumPreview from '../components/album-preview'
 const links = [
   { location: '/pre/', text: 'pre-order marigold' },
   { location: '/tickets/', text: 'get tickets' },
-  { location: '/store/', text: 'store' },
+  { location: 'http://www.pinegroveband.com/store', text: 'store' },
   { location: '/search/', text: 'search' },
   { location: '/albums/', text: 'recorded' },
   { location: '/tour-archive/', text: 'tour archive' },
