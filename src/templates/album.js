@@ -79,6 +79,16 @@ class AlbumTemplate extends React.Component {
                   }}
                 />
               </div>
+              <b>Release Date</b>
+              <p
+                style={{
+                  display: 'block',
+                }}
+              >
+                {album.releasedate}
+              </p>
+              <b>Credits</b>
+              {documentToReactComponents(album.credits.json, options)}
             </div>
             <div className="col" data-aos="fade">
               <h2>tracks</h2>
@@ -115,20 +125,7 @@ class AlbumTemplate extends React.Component {
               </Accordion>
             </div>
           </div>
-          <div className="container">
-            <div className="col">
-              <b>Release Date</b>
-              <p
-                style={{
-                  display: 'block',
-                }}
-              >
-                {album.releasedate}
-              </p>
-              <b>Credits</b>
-              {documentToReactComponents(album.credits.json, options)}
-            </div>
-          </div>
+
           {/* .container */}
           {/*           
           <div>
