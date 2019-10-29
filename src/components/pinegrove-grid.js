@@ -9,8 +9,6 @@ export default ({ links, squareTextStyle, colorOverride }) => {
     pinegroveGrid[index].link = links[index]
   })
 
-  console.log(colorOverride)
-
   return (
     <div id="square-container" data-aos="fade" data-aos-delay="200">
       {pinegroveGrid.map(element => {

@@ -170,6 +170,7 @@ exports.createPages = ({ graphql, actions }) => {
             context: {
               startDate: year.text + '-01-01',
               endDate: year.text + '-12-31',
+              year: year.text,
             },
           })
         })

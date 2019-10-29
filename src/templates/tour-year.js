@@ -6,6 +6,21 @@ import Helmet from 'react-helmet'
 
 import Layout from '../components/layout'
 
+const months = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+]
+
 class TourYearTemplate extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -13,7 +28,18 @@ class TourYearTemplate extends React.Component {
 
     const links = shows.map(show => ({
       location: `/show/${show.node.slug}`,
-      text: show.node.venue,
+      text: (
+        <div>
+          <div style={{ fontFamily: ['Oswald', 'sans-serif'] }}>
+            {months[parseInt(show.node.date.substring(5, 7) - 1)]}{' '}
+            {show.node.date.substring(8, 10)}
+            <br />{' '}
+            <span style={{ font: '1.1rem "Pinegrove", monospace' }}>
+              {show.node.venue}
+            </span>
+          </div>
+        </div>
+      ),
     }))
     return (
       <Layout location={this.props.location}>
@@ -24,7 +50,13 @@ class TourYearTemplate extends React.Component {
 
           <div>
             <header data-aos="fade">
-              <h1>xxxx</h1>
+              <h1>
+                tour archive
+                <span style={{ fontFamily: ['Oswald', 'sans-serif'] }}>
+                  {this.props.pageContext.year}
+                </span>
+              </h1>
+
               <div className="back-link">
                 <a href="javascript:history.back();">
                   <img src="/img/arrow-back.svg" alt="Back" />
@@ -36,10 +68,7 @@ class TourYearTemplate extends React.Component {
                 </a>
               </div>
             </header>
-            <PinegroveGrid
-              squareTextStyle={{ fontFamily: ['Oswald', 'sans-serif'] }}
-              links={links}
-            />
+            <PinegroveGrid links={links} />
           </div>
         </div>
       </Layout>
@@ -58,6 +87,7 @@ export const pageQuery = graphql`
     }
     allContentfulLivePerformance(
       filter: { date: { gte: $startDate, lte: $endDate } }
+      sort: { fields: [date], order: DESC }
     ) {
       edges {
         node {
