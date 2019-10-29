@@ -34,13 +34,18 @@ class AlbumIndex extends React.Component {
       <Layout location={this.props.location}>
         <div>
           <Helmet title={siteTitle} />
-          <div className="back-link">
-            <a href="javascript:history.back();">
-              <img src="/img/arrow-back.svg" alt="Back" />
-            </a>
-          </div>
-          <header id>
+          <header data-aos="fade">
             <h1>recorded</h1>
+            <div className="back-link">
+              <a href="javascript:history.back();">
+                <img src="/img/arrow-back.svg" alt="Back" />
+              </a>
+            </div>
+            <div className="home-link">
+              <a href="/">
+                <img src="/img/home.png" alt="home" />
+              </a>
+            </div>
           </header>
           <PinegroveGrid links={links} />
         </div>

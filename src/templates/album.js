@@ -56,14 +56,18 @@ class AlbumTemplate extends React.Component {
         <div>
           <Helmet title={`${album.title} | ${siteTitle}`} />
 
-          {/* </div> */}
-          <div className="back-link">
-            <a href="javascript:history.back();">
-              <img src="/img/arrow-back.svg" alt="Back" />
-            </a>
-          </div>
-          <header id="">
-            <h1 data-aos="fade">{album.title}</h1>
+          <header data-aos="fade">
+            <h1>{album.title}</h1>
+            <div className="back-link">
+              <a href="javascript:history.back();">
+                <img src="/img/arrow-back.svg" alt="Back" />
+              </a>
+            </div>
+            <div className="home-link">
+              <a href="/">
+                <img src="/img/home.png" alt="home" />
+              </a>
+            </div>
           </header>
           <div className="container">
             <div className="col">
