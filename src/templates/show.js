@@ -103,7 +103,13 @@ class ShowTemplate extends React.Component {
                 <h2>setlist</h2>
                 <ol>
                   {show.setListSongs
-                    ? show.setListSongs.map(song => <li>{song.songTitle}</li>)
+                    ? show.setListSongs.map(song => (
+                        <li>
+                          <Link to={`/song/${song.slug}`}>
+                            {song.songTitle}
+                          </Link>
+                        </li>
+                      ))
                     : null}
                 </ol>
               </div>
@@ -185,6 +191,7 @@ export const pageQuery = graphql`
       }
       setListSongs {
         songTitle
+        slug
       }
       tourEntry {
         tourName

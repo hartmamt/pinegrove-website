@@ -95,38 +95,38 @@ exports.createPages = ({ graphql, actions }) => {
 
     //Songs
 
-    // const songPage = path.resolve('./src/templates/song.js')
-    // resolve(
-    //   graphql(
-    //     `
-    //       {
-    //         allContentfulSong {
-    //           edges {
-    //             node {
-    //               songTitle
-    //               slug
-    //             }
-    //           }
-    //         }
-    //       }
-    //     `
-    //   ).then(result => {
-    //     if (result.errors) {
-    //       console.log(result.errors)
-    //       reject(result.errors)
-    //     }
+    const songPage = path.resolve('./src/templates/song.js')
+    resolve(
+      graphql(
+        `
+          {
+            allContentfulSong {
+              edges {
+                node {
+                  songTitle
+                  slug
+                }
+              }
+            }
+          }
+        `
+      ).then(result => {
+        if (result.errors) {
+          console.log(result.errors)
+          reject(result.errors)
+        }
 
-    //     const songs = result.data.allContentfulSong.edges
-    //     songs.forEach((song, index) => {
-    //       createPage({
-    //         path: `/song/${song.node.slug}/`,
-    //         component: songPage,
-    //         context: {
-    //           slug: song.node.slug,
-    //         },
-    //       })
-    //     })
-    //   })
-    // )
+        const songs = result.data.allContentfulSong.edges
+        songs.forEach((song, index) => {
+          createPage({
+            path: `/song/${song.node.slug}/`,
+            component: songPage,
+            context: {
+              slug: song.node.slug,
+            },
+          })
+        })
+      })
+    )
   })
 }

@@ -25,8 +25,15 @@ class SongTemplate extends React.Component {
       <Layout location={this.props.location}>
         <div>
           <Helmet title={`${song.songTitle} | ${siteTitle}`} />{' '}
-          <div className="wrapper">
-            <h1 className="section-headline"> {song.songTitle} </h1>{' '}
+          <div>
+            <div className="back-link">
+              <a href="javascript:history.back();">
+                <img src="/img/arrow-back.svg" alt="Back" />
+              </a>
+            </div>
+            <header>
+              <h1 data-aos="fade">{song.songTitle}</h1>
+            </header>
             <h4>Lyrics</h4>
             <div>
               <pre>{documentToReactComponents(song.lyrics.json)} </pre>
