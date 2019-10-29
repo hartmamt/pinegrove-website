@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import Carousel from 'react-images'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import {
@@ -31,8 +32,16 @@ const options = {
 
 class ShowTemplate extends React.Component {
   render() {
-    const album = get(this.props, 'data.contentfulAlbum')
+    const show = get(this.props, 'data.contentfulLivePerformance')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+
+    //console.log(show.performanceImages.map(image => image.fluid.src))
+    const images = show.performanceImages
+      ? show.performanceImages.map(image => ({
+          caption: 'Pinegrove live',
+          src: image.fluid.src,
+        }))
+      : undefined
 
     // size may also be a plain string using the presets 'large' or 'compact'
     const size = {
@@ -42,92 +51,102 @@ class ShowTemplate extends React.Component {
     const view = 'list' // or 'coverart'
     const theme = 'black' // or 'white'
 
-    const tracks = get(this, 'props.data.contentfulAlbum.tracks')
+    //const tracks = get(this, 'props.data.contentfulLivePerformance.tracks')
 
     return (
       <Layout location={this.props.location}>
         <div>
-          <Helmet title={`${album.title} | ${siteTitle}`} />
+          <Helmet title={`${show.title} | ${siteTitle}`} />
 
           {/* </div> */}
 
-          <div className="wrapper">
-            {/* <div className={heroStyles.hero}> */}
-            <h1 className="section-headline"> {album.title} </h1>
-            {/* </div> */}
-
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                flexWrap: 'wrap',
-              }}
-            >
-              <div style={{ flex: 2, minWidth: '300px' }}>
-                <div>
-                  <div>
-                    <Img
-                      className={'albumImage'}
-                      alt={album.title}
-                      fluid={album.albumCover.fluid}
-                      style={{ maxWidth: '450px' }}
-                    />
-                  </div>
-                  <div
-                    style={{ maxWidth: '450px', marginTop: '20px' }}
-                    dangerouslySetInnerHTML={{
-                      __html: album.playerEmbed.childMarkdownRemark.html,
+          <div>
+            <div className="back-link">
+              <a href="javascript:history.back();">
+                <img src="/img/arrow-back.svg" alt="Back" />
+              </a>
+            </div>
+            <header>
+              <h1 data-aos="fade">
+                {show.venue}
+                <br />
+                <span>
+                  {show.citystatecountry} | {show.date}
+                </span>
+              </h1>
+            </header>
+            <div className="container">
+              <div className="col" data-aos="fade">
+                <p>
+                  <img
+                    src={
+                      show.tourEntry && show.tourEntry.tourPoster
+                        ? show.tourEntry.tourPoster.fluid.src
+                        : '/img/gallery-temp-01.png'
+                    }
+                    alt="pinegrove live schedule"
+                  />
+                </p>
+                <h2>tour</h2>
+                <p>midwest tour</p>
+                <h2>lineup</h2>
+                <p>Common Holly</p>
+                <p>Stephen Steinbrink</p>
+              </div>
+              {/* .col */}
+              <div className="col" data-aos="fade">
+                <h2>setlist</h2>
+                <ol>
+                  {show.setListSongs
+                    ? show.setListSongs.map(song => <li>{song.songTitle}</li>)
+                    : null}
+                </ol>
+              </div>
+              {/* .col */}
+              <div className="col" data-aos="fade">
+                <h2>images</h2>
+                {images ? (
+                  <Carousel
+                    views={images}
+                    className="gallery"
+                    styles={{
+                      container: base => ({
+                        ...base,
+                        height: 'auto',
+                        padding: 10,
+                      }),
                     }}
                   />
+                ) : null}
+
+                {/* .gallery */}
+                <h2>timeline</h2>
+                <div className="container">
+                  <div className="col">
+                    <h4>white eagle hall</h4>
+                    <p>Sep 28, 2010</p>
+                  </div>
+                  {/* .col */}
+                  <div className="col">
+                    <h4>brooklyn steel</h4>
+                    <p>Sep 29, 2010</p>
+                  </div>
+                  {/* .col */}
+                  <div className="col">
+                    <h4>the fonda</h4>
+                    <p>Sep 29, 2010</p>
+                  </div>
+                  {/* .col */}
                 </div>
-                <Accordion allowZeroExpanded>
-                  {tracks &&
-                    tracks.map(track => (
-                      <AccordionItem>
-                        <AccordionItemHeading>
-                          <AccordionItemButton>
-                            <Link to={`/song/${track.slug}`}>
-                              {track.songTitle}{' '}
-                            </Link>
-                          </AccordionItemButton>
-                        </AccordionItemHeading>
-                        <AccordionItemPanel>
-                          <div>
-                            <div
-                              style={{ width: '100%' }}
-                              dangerouslySetInnerHTML={{
-                                __html:
-                                  track.audioEmbed.childMarkdownRemark.html,
-                              }}
-                            />
-                            <div>
-                              <div>
-                                <div>Lyrics</div>
-                                <pre>
-                                  {documentToReactComponents(track.lyrics.json)}{' '}
-                                </pre>
-                              </div>
-                            </div>
-                          </div>
-                        </AccordionItemPanel>
-                      </AccordionItem>
-                    ))}
-                </Accordion>
+                {/* .container */}
+                <h2>i was there</h2>
+                <p>feed stuff</p>
               </div>
-              <div style={{ flex: 1, marginLeft: '75px' }}>
-                <b>Release Date</b>
-                <p
-                  style={{
-                    display: 'block',
-                  }}
-                >
-                  {album.releasedate}
-                </p>
-                <b>Credits</b>
-                {documentToReactComponents(album.credits.json, options)}
-              </div>
+              {/* .col */}
             </div>
+            {/* .container */}
           </div>
+
           {/* <DiscussionBox
             discourseUrl={'https://amperland.gokinjo.space/'}
             discourseEmbedUrl={
@@ -149,35 +168,29 @@ export const pageQuery = graphql`
         title
       }
     }
-    contentfulAlbum(slug: { eq: $slug }) {
-      title
-      releasedate(formatString: "MMMM Do, YYYY")
-      playerEmbed {
-        childMarkdownRemark {
-          html
+    contentfulLivePerformance(slug: { eq: $slug }) {
+      venue
+      slug
+      citystatecountry
+      date
+      performanceImages {
+        fluid {
+          src
         }
       }
-      albumCover {
-        fluid(maxWidth: 500, maxHeight: 500, resizingBehavior: PAD) {
-          ...GatsbyContentfulFluid
-        }
-      }
-      credits {
-        json
-      }
-      tracks {
+      setListSongs {
         songTitle
-        slug
-        lyrics {
-          json
-          lyrics
-        }
-        audioFile {
-          file {
-            url
+      }
+      tourEntry {
+        tourName
+        tourEnd
+        tourStart
+        tourPoster {
+          fluid {
+            src
           }
         }
-        audioEmbed {
+        openers {
           childMarkdownRemark {
             html
           }

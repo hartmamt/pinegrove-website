@@ -40,6 +40,59 @@ exports.createPages = ({ graphql, actions }) => {
       })
     )
 
+    //Shows
+
+    const showPage = path.resolve('./src/templates/show.js')
+    resolve(
+      graphql(
+        `
+          {
+            allContentfulLivePerformance {
+              edges {
+                node {
+                  venue
+                  slug
+                  citystatecountry
+                  date
+                  tourEntry {
+                    tourName
+                    tourEnd
+                    tourStart
+                    tourPoster {
+                      fluid {
+                        src
+                      }
+                    }
+                    openers {
+                      childMarkdownRemark {
+                        html
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `
+      ).then(result => {
+        if (result.errors) {
+          console.log(result.errors)
+          reject(result.errors)
+        }
+
+        const shows = result.data.allContentfulLivePerformance.edges
+        shows.forEach((show, index) => {
+          createPage({
+            path: `/show/${show.node.slug}/`,
+            component: showPage,
+            context: {
+              slug: show.node.slug,
+            },
+          })
+        })
+      })
+    )
+
     //Songs
 
     // const songPage = path.resolve('./src/templates/song.js')
