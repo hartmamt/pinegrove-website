@@ -45,22 +45,22 @@ class Template extends React.Component {
                 <a href="#link">Marigold Pre-order</a>
               </li>
               <li>
-                <a href="#link">Tour Dates</a>
+                <Link to={'/tickets/'}>Tickets</Link>
               </li>
               <li>
-                <a href="#link">Store</a>
+                <a href="https://www.pinegroveband.com/store">Store</a>
               </li>
               <li>
-                <a href="#link">Recorded</a>
+                <Link to={'/albums/'}>Recorded</Link>
               </li>
               <li>
-                <a href="#link">Community</a>
+                <a href="https://community.pinegroveband.com">Community</a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#link">Media</a>
-              </li>
+              </li> */}
               <li>
-                <a href="#link">Search</a>
+                <Link to={'/search/'}>Search</Link>
               </li>
             </ul>
           </nav>

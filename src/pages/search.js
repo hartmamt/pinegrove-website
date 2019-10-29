@@ -19,7 +19,7 @@ import {
 
 //import 'instantsearch.css/themes/reset.css'
 // include the full Algolia theme
-import 'instantsearch.css/themes/algolia.css'
+//import 'instantsearch.css/themes/algolia.css'
 
 import './search.css'
 
@@ -57,11 +57,7 @@ const searchClient = {
 
 const SongHits = function(props) {
   return (
-    <div
-      style={{
-        width: '1000px',
-      }}
-    >
+    <div>
       {/* <img src={props.hit.image} align="left" alt={props.hit.name} /> */}
       <div
         style={{
@@ -136,12 +132,21 @@ class SearchPage extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <div
-          style={{
-            padding: '30px',
-          }}
-        >
+        <div>
           <Helmet title={siteTitle} />
+          <header data-aos="fade">
+            <h1>search</h1>
+            <div className="back-link">
+              <a href="javascript:history.back();">
+                <img src="/img/arrow-back.svg" alt="Back" />
+              </a>
+            </div>
+            <div className="home-link">
+              <a href="/">
+                <img src="/img/home.png" alt="home" />
+              </a>
+            </div>
+          </header>
           <InstantSearch
             searchClient={searchClient}
             indexName="songs"
@@ -150,7 +155,6 @@ class SearchPage extends React.Component {
             <SearchBox />
             <PoweredBy />
             <Index indexName="songs">
-              <p>Songs</p>
               <Hits hitComponent={SongHits} />
             </Index>
           </InstantSearch>
