@@ -8,22 +8,36 @@ import Layout from '../components/layout'
 import PinegroveGrid from '../components/pinegrove-grid'
 import AlbumPreview from '../components/album-preview'
 
-const links = [
-  { location: '/tour/all/', text: 'all' },
-  { location: '/tour/2019/', text: '2019' },
-  { location: '/tour/2018/', text: '2018' },
-  { location: '/tour/2017/', text: '2017' },
-  { location: '/tour/2016/', text: '2016' },
-  { location: '/tour/2015/', text: '2015' },
-  { location: '/tour/2014/', text: '2014' },
-  { location: '/tour/2013/', text: '2013' },
-  { location: '/tour/2012/', text: '2012' },
-  { location: '/tour/2011/', text: '2011' },
-]
+let links = [{ location: '/tour/all/', text: 'all' }]
+
+const compare = function(a, b) {
+  return parseInt(b.text) - parseInt(a.text)
+}
 
 class TourArchiveIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    const shows = get(this, 'props.data.allContentfulLivePerformance.edges')
+
+    const showsWithYear = shows
+      .map(show => {
+        //show.node.year = show.node.date.substring(0, 4)
+        return {
+          location: '/tour/' + show.node.date.substring(0, 4),
+          text: show.node.date.substring(0, 4),
+        }
+      })
+      .sort(compare)
+
+    let uniqueYears = []
+    showsWithYear.forEach(function(item) {
+      var i = uniqueYears.findIndex(x => x.text == item.text)
+      if (i <= -1) {
+        uniqueYears.push({ location: item.location, text: item.text })
+      }
+    })
+
+    uniqueYears.unshift({ location: '/tour/all', text: 'All' })
 
     return (
       <Layout location={this.props.location}>
@@ -44,7 +58,7 @@ class TourArchiveIndex extends React.Component {
           </header>
           <PinegroveGrid
             squareTextStyle={{ fontFamily: ['Oswald', 'sans-serif'] }}
-            links={links}
+            links={uniqueYears}
           />
         </div>
       </Layout>
@@ -59,6 +73,13 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    allContentfulLivePerformance {
+      edges {
+        node {
+          date
+        }
       }
     }
   }
