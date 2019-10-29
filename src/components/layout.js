@@ -36,14 +36,7 @@ class Template extends React.Component {
     // } = pageContext
 
     return (
-      <div
-        id="site-container"
-        style={{
-          zoom: 0.6,
-          MozTransform: 'scale(.9)',
-          '-moz-transform-origin': '0 0',
-        }}
-      >
+      <div id="site-container">
         {children}
         <footer id>
           <nav id="bottom">
