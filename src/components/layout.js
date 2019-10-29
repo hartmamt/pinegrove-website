@@ -39,8 +39,8 @@ class Template extends React.Component {
       <div
         id="site-container"
         style={{
-          zoom: 0.9,
-          '-moz-transform': 'scale(.9)',
+          zoom: 0.6,
+          MozTransform: 'scale(.9)',
           '-moz-transform-origin': '0 0',
         }}
       >
