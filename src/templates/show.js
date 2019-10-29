@@ -90,8 +90,13 @@ class ShowTemplate extends React.Component {
                 <h2>tour</h2>
                 <p>midwest tour</p>
                 <h2>lineup</h2>
-                <p>Common Holly</p>
-                <p>Stephen Steinbrink</p>
+                {show.tourEntry && show.tourEntry.openers ? (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: show.tourEntry.openers.childMarkdownRemark.html,
+                    }}
+                  />
+                ) : null}
               </div>
               {/* .col */}
               <div className="col" data-aos="fade">
