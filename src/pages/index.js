@@ -20,9 +20,13 @@ const links = [
   },
   { location: '/phase/', text: 'watch "phase"' },
   {
-    location: 'https://www.bandsintown.com/a/1685238-pinegrove',
+    location: '/tour-dates/',
     text: 'tour dates',
   },
+  // {
+  //   location: 'https://www.bandsintown.com/a/1685238-pinegrove',
+  //   text: 'tour dates',
+  // },
   {
     location: 'http://pinegrove.ffm.to/marigoldtourpresale',
     text: 'marigold ticket pre-sale',
