@@ -71,7 +71,7 @@ class Template extends React.Component {
                 <Link to={'/albums/'}>Recordings</Link>
               </li>
               <li>
-                <Link to={'/tickets/'}>Tickets</Link>
+                <Link to={'/tour-dates/'}>Tour Dates</Link>
               </li>
               <li>
                 <a
@@ -96,11 +96,11 @@ class Template extends React.Component {
                   Mailing List
                 </Link>
               </li> */}
-              <li>
+              {/* <li>
                 <Link style={nowrap} to={'/tabs/'}>
                   Guitar Tabs
                 </Link>
-              </li>
+              </li> */}
               {/* <li>
                 <a href="#link">Media</a>
               </li> */}
