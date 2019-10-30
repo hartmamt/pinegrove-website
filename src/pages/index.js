@@ -62,7 +62,13 @@ class RootIndex extends React.Component {
           data-gr-c-s-loaded="true"
           screen_capture_injected="true"
         >
-          <Helmet title={siteTitle} />
+          <Helmet title={siteTitle}>
+            <meta
+              data-react-helmet="true"
+              property="og:image"
+              content="/img/home-social.png"
+            />
+          </Helmet>
 
           {/* <h1 className="section-headline">hello & welcome</h1> */}
 
