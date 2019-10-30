@@ -18,8 +18,11 @@ const links = [
       </div>
     ),
   },
-  { location: '/phase/', text: 'watch phase' },
-  { location: '/tickets/', text: 'tour dates' },
+  { location: 'https://youtu.be/Ad8BabV7oLg', text: 'watch "phase"' },
+  {
+    location: 'https://www.bandsintown.com/a/1685238-pinegrove',
+    text: 'tour dates',
+  },
   {
     location: 'http://pinegrove.ffm.to/marigoldtourpresale',
     text: 'marigold ticket pre-sale',

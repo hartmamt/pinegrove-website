@@ -60,7 +60,7 @@ class MailingListIndex extends React.Component {
                     '\n\t#mc-embedded-subscribe-form input[type=checkbox]{display: inline; width: auto;margin-right: 10px;}\n\t#mergeRow-gdpr {margin-top: 20px;}\n\t#mergeRow-gdpr fieldset label {font-weight: normal;}\n\t#mc-embedded-subscribe-form .mc_fieldset{border:none;min-height: 0px;padding-bottom:0px;}\n',
                 }}
               />
-              <div id="mc_embed_signup">
+              <div id="mc_embed_signup" style={{ backgroundColor: '#68c3dc' }}>
                 <form
                   action="https://pinegroveband.us14.list-manage.com/subscribe/post?u=eeb342c8dbf9ad87f7228ace0&id=8b3a4f19d2"
                   method="post"
@@ -176,6 +176,7 @@ class MailingListIndex extends React.Component {
                     </div>
                     <div className="clear">
                       <input
+                        style={{ backgroundColor: '#e92026' }}
                         type="submit"
                         defaultValue="Subscribe"
                         name="subscribe"

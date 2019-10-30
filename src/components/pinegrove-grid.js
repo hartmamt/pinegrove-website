@@ -21,6 +21,8 @@ export default ({ links, squareTextStyle, colorOverride }) => {
                 }`}
                 href={element.link.location}
                 key={element.link.location}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <div className="square-text" style={squareTextStyle}>
                   {element.link.text}

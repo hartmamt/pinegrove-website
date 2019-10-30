@@ -60,8 +60,28 @@ class SongTemplate extends React.Component {
               <div className="col" data-aos="fade">
                 <h2>Lyrics</h2>
                 <pre>{documentToReactComponents(song.lyrics.json)} </pre>
-                {/* <h2>tab</h2>
-                <p>...</p> */}
+                {song.tabPrint ? (
+                  <div>
+                    <h2>tab</h2>
+                    <p>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={song.tabView.file.url}
+                      >
+                        view
+                      </a>{' '}
+                      /
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={song.tabPrint.file.url}
+                      >
+                        print
+                      </a>
+                    </p>
+                  </div>
+                ) : null}
               </div>
               {/* .col */}
               <div className="col text-center" data-aos="fade">
@@ -145,6 +165,16 @@ export const pageQuery = graphql`
       lyrics {
         json
         lyrics
+      }
+      tabPrint {
+        file {
+          url
+        }
+      }
+      tabView {
+        file {
+          url
+        }
       }
       tab {
         json

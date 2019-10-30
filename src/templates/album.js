@@ -140,6 +140,28 @@ class AlbumTemplate extends React.Component {
                             <pre>
                               {documentToReactComponents(track.lyrics.json)}{' '}
                             </pre>
+                            {track.tabPrint ? (
+                              <div>
+                                <h2>tab</h2>
+                                <p>
+                                  <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href={track.tabView.file.url}
+                                  >
+                                    view
+                                  </a>{' '}
+                                  /
+                                  <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href={track.tabPrint.file.url}
+                                  >
+                                    print
+                                  </a>
+                                </p>
+                              </div>
+                            ) : null}
                           </div>
                         </div>
                       </AccordionItemPanel>
@@ -265,6 +287,16 @@ export const pageQuery = graphql`
       tracks {
         songTitle
         slug
+        tabPrint {
+          file {
+            url
+          }
+        }
+        tabView {
+          file {
+            url
+          }
+        }
         lyrics {
           json
           lyrics

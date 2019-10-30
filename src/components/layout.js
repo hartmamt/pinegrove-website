@@ -43,19 +43,31 @@ class Template extends React.Component {
           <nav id="bottom">
             <ul>
               <li>
-                <a style={nowrap} href="https://pinegrove.ffm.to/marigold">
+                <a
+                  style={nowrap}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://pinegrove.ffm.to/marigold"
+                >
                   Marigold Pre-order
                 </a>
               </li>
               <li>
-                <Link style={nowrap} to={'/phase/'}>
-                  Watch Phase
-                </Link>
+                <a
+                  style={nowrap}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://youtu.be/Ad8BabV7oLg"
+                >
+                  Watch "Phase"
+                </a>
               </li>
               <li>
                 <a
                   style={nowrap}
                   href="http://pinegrove.ffm.to/marigoldtourpresale"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Marigold Ticket Pre-sale
                 </a>
@@ -67,10 +79,22 @@ class Template extends React.Component {
                 <Link to={'/tickets/'}>Tickets</Link>
               </li>
               <li>
-                <a href="http://smarturl.it/pinegrovestore">Store</a>
+                <a
+                  href="http://smarturl.it/pinegrovestore"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Store
+                </a>
               </li>
               <li>
-                <a href="https://community.pinegroveband.com">Community</a>
+                <a
+                  href="https://community.pinegroveband.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Community
+                </a>
               </li>
               <li>
                 <Link style={nowrap} to={'/mailing-list/'}>
