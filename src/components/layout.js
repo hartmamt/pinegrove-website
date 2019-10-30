@@ -91,14 +91,14 @@ class Template extends React.Component {
                   Community
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <Link style={nowrap} to={'/mailing-list/'}>
                   Mailing List
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link style={nowrap} to={'/tabs/'}>
-                  Tabs
+                  Guitar Tabs
                 </Link>
               </li>
               {/* <li>

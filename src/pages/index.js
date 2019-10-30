@@ -38,7 +38,7 @@ const links = [
   // { location: '/media/', text: 'media' },
   { location: 'https://community.pinegroveband.com/', text: 'community' },
   { location: '/mailing-list/', text: 'mailing list' },
-  { location: '/tabs/', text: 'tabs' },
+  { location: '/tabs/', text: 'guitar tabs' },
 ]
 
 class RootIndex extends React.Component {
