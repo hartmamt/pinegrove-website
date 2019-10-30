@@ -18,7 +18,7 @@ const links = [
       </div>
     ),
   },
-  { location: 'https://youtu.be/Ad8BabV7oLg', text: 'watch "phase"' },
+  { location: '/phase/', text: 'watch "phase"' },
   {
     location: 'https://www.bandsintown.com/a/1685238-pinegrove',
     text: 'tour dates',

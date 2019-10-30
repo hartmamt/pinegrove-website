@@ -53,14 +53,9 @@ class Template extends React.Component {
                 </a>
               </li>
               <li>
-                <a
-                  style={nowrap}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://youtu.be/Ad8BabV7oLg"
-                >
+                <Link style={nowrap} to={'/phase/'}>
                   Watch "Phase"
-                </a>
+                </Link>
               </li>
               <li>
                 <a
