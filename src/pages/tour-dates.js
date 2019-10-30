@@ -65,7 +65,14 @@ class TourDatesIndex extends React.Component {
                 </a>
               </div>
             </header>
-            <div>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignContent: 'center',
+                backgroundColor: '#6ac4db',
+              }}
+            >
               {this.state.bandsInTownReady ? (
                 <div
                   style={{

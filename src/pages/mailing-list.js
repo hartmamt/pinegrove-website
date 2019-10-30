@@ -60,7 +60,13 @@ class MailingListIndex extends React.Component {
                     '\n\t#mc-embedded-subscribe-form input[type=checkbox]{display: inline; width: auto;margin-right: 10px;}\n\t#mergeRow-gdpr {margin-top: 20px;}\n\t#mergeRow-gdpr fieldset label {font-weight: normal;}\n\t#mc-embedded-subscribe-form .mc_fieldset{border:none;min-height: 0px;padding-bottom:0px;}\n',
                 }}
               />
-              <div id="mc_embed_signup" style={{ backgroundColor: '#68c3dc' }}>
+              <div
+                id="mc_embed_signup"
+                style={{
+                  backgroundColor: '#68c3dc',
+                  fontFamily: '"Pinegrove", monospace',
+                }}
+              >
                 <form
                   action="https://pinegroveband.us14.list-manage.com/subscribe/post?u=eeb342c8dbf9ad87f7228ace0&id=8b3a4f19d2"
                   method="post"
@@ -83,6 +89,7 @@ class MailingListIndex extends React.Component {
                         type="email"
                         name="EMAIL"
                         className="required email"
+                        style={{ fontFamily: '"Special Elite", monospace' }}
                         id="mce-EMAIL"
                       />
                     </div>
@@ -93,6 +100,7 @@ class MailingListIndex extends React.Component {
                         name="FNAME"
                         className
                         id="mce-FNAME"
+                        style={{ fontFamily: '"Special Elite", monospace' }}
                       />
                     </div>
                     <div className="mc-field-group">
@@ -102,6 +110,7 @@ class MailingListIndex extends React.Component {
                         name="LNAME"
                         className
                         id="mce-LNAME"
+                        style={{ fontFamily: '"Special Elite", monospace' }}
                       />
                     </div>
                     <div

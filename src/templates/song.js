@@ -152,6 +152,14 @@ class SongTemplate extends React.Component {
 }
 
 export default SongTemplate
+/*
+live_performance {
+        citystatecountry
+        venue
+        date
+        slug
+      }
+      */
 
 export const pageQuery = graphql`
   query SongBySlug($slug: String!) {
@@ -192,12 +200,6 @@ export const pageQuery = graphql`
             html
           }
         }
-      }
-      live_performance {
-        citystatecountry
-        venue
-        date
-        slug
       }
     }
   }
