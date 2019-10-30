@@ -262,10 +262,10 @@ a:hover {
   top: 2rem;
 }
 .back-link {
-  left: 0;
+  left: 1rem;
 }
 .home-link {
-  right: 0;
+  right: 1rem;
 }
 .back-link img {
   width: 50px;
@@ -319,9 +319,6 @@ textarea,
 th,
 td {
   -webkit-font-smoothing: antialiased;
-  /*
-       font: 16px 'Source Code Pro', monospace;
-       */
   font: 16px 'Special Elite', monospace;
   color: #000;
 }
@@ -348,7 +345,7 @@ h1 {
   text-align: center;
   margin: 0;
   line-height: 1;
-  letter-spacing: -0.5rem;
+  letter-spacing: -0.2rem;
 }
 h1 span {
   font: 1.5rem 'Special Elite', monospace;
@@ -464,21 +461,9 @@ q:after {
 
 body {
   background: #a6a4a5;
-  /*
-       background-image: url(/img/background-01.png);
-       background-color: #214e68;
-       background-repeat: no-repeat;
-       background-size: cover;
-       background-position: center top;
-       background-attachment: fixed;
-       margin: 0 50px;
-       */
 }
 
 #site-container {
-  /*
-       background: #a6a4a5;
-       */
   margin: 0 auto;
   padding: 1rem 2rem;
   max-width: 1400px;
@@ -496,6 +481,10 @@ body {
 }
 .col.third {
   max-width: 32%;
+}
+
+.coming-soon {
+  padding: 3rem 0;
 }
 
 /* =============================================================================
@@ -563,10 +552,14 @@ nav#social ul li a {
   position: relative;
   width: 100%;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 3rem;
   text-align: center;
 }
 
+#square-container .square,
+#square-container .square:hover {
+  color: #000;
+}
 #square-container .square {
   background-position: center center;
   background-repeat: no-repeat;
@@ -588,10 +581,9 @@ nav#social ul li a {
   -webkit-filter: brightness(1.15);
   filter: brightness(1.15);
 }
-
 #square-container .square-text {
   font: 2.1rem 'Pinegrove', monospace;
-  line-height: 1.3;
+  line-height: 1.2;
   margin: 0;
   position: absolute;
   top: 50%;
@@ -599,6 +591,12 @@ nav#social ul li a {
   transform: translate(-50%, -50%);
   text-align: center;
   animation: fade-in 300ms;
+}
+#square-container .square-text span.nowrap {
+  white-space: nowrap;
+}
+#square-container .square-text span.number {
+  font: 2rem 'Special Elite', monospace;
 }
 
 .light-blue {
@@ -615,16 +613,47 @@ nav#social ul li a {
 }
 
 /* =============================================================================
-      ALBUM
+      ALBUM & SONGS PAGES
       ========================================================================== */
 
-.album-image,
-.bandcamp-embed {
+.album-image {
   margin-bottom: 2rem;
 }
 .album-image img {
   width: 100%;
   height: auto;
+}
+.bandcamp-embed {
+  margin-bottom: 3rem;
+}
+
+.date-venue-list,
+.date-venue-item {
+  margin: 0 0 1rem 0;
+}
+.date-venue-item {
+  display: flex;
+  align-items: center;
+}
+.date-venue-item .date {
+  background: #1c486a;
+  border-radius: 10px;
+  text-align: center;
+  padding: 0.6rem 1rem;
+}
+.date .mm {
+  font-family: 'Pinegrove', monospace;
+  font-size: 1.2rem;
+}
+.date .dd {
+  font-size: 1.6rem;
+}
+.date .yy {
+  font-size: 0.8rem;
+}
+.date-venue-item .venue {
+  padding: 1rem;
+  font-size: 1.2rem;
 }
 
 /* =============================================================================
@@ -857,9 +886,6 @@ optgroup {
       ========================================================================== */
 
 @media (min-width: 0px) and (max-width: 1364px) {
-  body {
-    margin: 0 2rem;
-  }
   #square-container .square {
     margin: 0.5rem;
   }
@@ -938,7 +964,6 @@ optgroup {
   }
 }
 @media (min-width: 0px) and (max-width: 960px) {
-  /* body { margin: 0 10px; } */
   header,
   footer,
   nav#bottom,
@@ -947,10 +972,15 @@ optgroup {
     padding: 1rem;
   }
   #site-container {
-    padding: 1rem;
+    padding: 0;
   }
   h1 {
-    font-size: 3rem;
+    font-size: 2.3rem;
+    max-width: 70%;
+    margin: 0 auto;
+  }
+  #square-container {
+    padding: 0;
   }
   #square-container .square {
     margin: 0.4rem;

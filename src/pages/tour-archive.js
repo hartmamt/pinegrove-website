@@ -57,7 +57,8 @@ class TourArchiveIndex extends React.Component {
             </div>
           </header>
           <PinegroveGrid
-            squareTextStyle={{ fontFamily: ['Oswald', 'sans-serif'] }}
+            squareTextStyle={{ font: '1.8rem "Special Elite", monospace' }}
+            hasNumbers
             links={uniqueYears}
           />
         </div>

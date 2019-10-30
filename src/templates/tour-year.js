@@ -29,15 +29,13 @@ class TourYearTemplate extends React.Component {
     const links = shows.map(show => ({
       location: `/show/${show.node.slug}`,
       text: (
-        <div>
-          <div style={{ fontFamily: ['Oswald', 'sans-serif'] }}>
+        <div class="square-text">
+          <span class="number nowrap">
             {months[parseInt(show.node.date.substring(5, 7) - 1)]}{' '}
             {show.node.date.substring(8, 10)}
-            <br />{' '}
-            <span style={{ font: '1.1rem "Pinegrove", monospace' }}>
-              {show.node.venue}
-            </span>
-          </div>
+          </span>
+          <br />
+          {show.node.venue}
         </div>
       ),
     }))
@@ -52,7 +50,7 @@ class TourYearTemplate extends React.Component {
             <header data-aos="fade">
               <h1>
                 tour archive
-                <span style={{ fontFamily: ['Oswald', 'sans-serif'] }}>
+                <span style={{ font: '1.4rem "Special Elite", monospace' }}>
                   {this.props.pageContext.year}
                 </span>
               </h1>

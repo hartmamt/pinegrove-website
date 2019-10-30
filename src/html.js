@@ -18,35 +18,32 @@ export default function HTML(props) {
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/img/icons/apple-touch-icon.png"
+          href="/icons/apple-touch-icon.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="/img/icons/favicon-32x32.png"
+          href="/icons/favicon-32x32.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="/img/icons/favicon-16x16.png"
+          href="/icons/favicon-16x16.png"
         />
         <link rel="manifest" href="/img/icons/site.webmanifest" />
         <link
           rel="mask-icon"
-          href="/img/icons/safari-pinned-tab.svg"
+          href="/icons/safari-pinned-tab.svg"
           color="#214e68"
         />
-        <link rel="shortcut icon" href="/img/icons/favicon.ico" />
+        <link rel="shortcut icon" href="/icons/favicon.ico" />
         <meta name="msapplication-TileColor" content="#214e68" />
-        <meta
-          name="msapplication-config"
-          content="/img/icons/browserconfig.xml"
-        />
+        <meta name="msapplication-config" content="/icons/browserconfig.xml" />
         <meta name="theme-color" content="#214e68" />
 
-        <link rel="stylesheet" href="css/pinegrove.css?v4.4" />
+        <link rel="stylesheet" href="css/pinegrove.css" />
 
         <link
           href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400i,700,700i&amp;display=swap"

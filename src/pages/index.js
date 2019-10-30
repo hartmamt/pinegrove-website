@@ -10,14 +10,21 @@ import PinegroveGrid from '../components/pinegrove-grid'
 import AlbumPreview from '../components/album-preview'
 
 const links = [
-  { location: '/pre/', text: 'pre-order marigold' },
+  {
+    location: '/pre/',
+    text: (
+      <div className="square-text">
+        <span className="nowrap">pre-order</span> marigold
+      </div>
+    ),
+  },
   { location: '/tickets/', text: 'get tickets' },
-  { location: 'http://www.pinegroveband.com/store', text: 'store' },
+  { location: 'http://smarturl.it/pinegrovestore', text: 'store' },
   { location: '/search/', text: 'search' },
   { location: '/albums/', text: 'recorded' },
   { location: '/tour-archive/', text: 'tour archive' },
-  { location: '/articles/', text: 'media' },
-  { location: 'https://amperland.gokinjo.space/', text: 'community' },
+  { location: '/media/', text: 'media' },
+  { location: 'https://community.pinegroveband.com/', text: 'community' },
 ]
 
 class RootIndex extends React.Component {

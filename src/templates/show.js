@@ -83,16 +83,18 @@ class ShowTemplate extends React.Component {
 
             <div className="container">
               <div className="col" data-aos="fade">
-                <p>
-                  <img
-                    src={
-                      show.tourEntry && show.tourEntry.tourPoster
-                        ? show.tourEntry.tourPoster.fluid.src
-                        : '/img/gallery-temp-01.png'
-                    }
-                    alt="pinegrove live schedule"
-                  />
-                </p>
+                {show.tourEntry && show.tourEntry.tourPoster ? (
+                  <p>
+                    <img
+                      src={
+                        show.tourEntry && show.tourEntry.tourPoster
+                          ? show.tourEntry.tourPoster.fluid.src
+                          : '/img/gallery-temp-01.png'
+                      }
+                      alt="pinegrove live schedule"
+                    />
+                  </p>
+                ) : null}
                 <h2>tour</h2>
                 <p>midwest tour</p>
                 <h2>lineup</h2>
@@ -137,27 +139,24 @@ class ShowTemplate extends React.Component {
                 ) : null}
 
                 {/* .gallery */}
-                <h2>timeline</h2>
+
+                {/* <h2>timeline</h2>
                 <div className="container">
                   <div className="col">
                     <h4>white eagle hall</h4>
                     <p>Sep 28, 2010</p>
                   </div>
-                  {/* .col */}
                   <div className="col">
                     <h4>brooklyn steel</h4>
                     <p>Sep 29, 2010</p>
                   </div>
-                  {/* .col */}
                   <div className="col">
                     <h4>the fonda</h4>
                     <p>Sep 29, 2010</p>
                   </div>
-                  {/* .col */}
                 </div>
-                {/* .container */}
                 <h2>i was there</h2>
-                <p>feed stuff</p>
+                <p>feed stuff</p> */}
               </div>
               {/* .col */}
             </div>
