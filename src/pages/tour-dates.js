@@ -24,7 +24,7 @@ const loadBandsInTown = callback => {
   if (existingScript && callback) callback()
 }
 
-class TicketIndex extends React.Component {
+class TourDatesIndex extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -53,7 +53,7 @@ class TicketIndex extends React.Component {
           <Helmet title={siteTitle} />
           <div className="wrapper">
             <header data-aos="fade">
-              <h1>tickets</h1>
+              <h1>tour dates</h1>
               <div className="back-link">
                 <a href="javascript:history.back();">
                   <img src="/img/arrow-back.svg" alt="Back" />
@@ -176,10 +176,10 @@ class TicketIndex extends React.Component {
 //   }
 // }
 
-export default TicketIndex
+export default TourDatesIndex
 
 export const pageQuery = graphql`
-  query TicketIndexQuery {
+  query TourDatesIndexQuery {
     site {
       siteMetadata {
         title

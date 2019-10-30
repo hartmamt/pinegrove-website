@@ -35,6 +35,7 @@ class Template extends React.Component {
     //   breadcrumb: { crumbs },
     // } = pageContext
 
+    const nowrap = { whiteSpace: 'nowrap' }
     return (
       <div id="site-container">
         {children}
@@ -42,26 +43,46 @@ class Template extends React.Component {
           <nav id="bottom">
             <ul>
               <li>
-                <a href="#link">Marigold Pre-order</a>
+                <a style={nowrap} href="https://pinegrove.ffm.to/marigold">
+                  Marigold Pre-order
+                </a>
+              </li>
+              <li>
+                <Link style={nowrap} to={'/phase/'}>
+                  Watch Phase
+                </Link>
+              </li>
+              <li>
+                <a
+                  style={nowrap}
+                  href="http://pinegrove.ffm.to/marigoldtourpresale"
+                >
+                  Marigold Ticket Pre-sale
+                </a>
+              </li>
+              <li>
+                <Link to={'/albums/'}>Recordings</Link>
               </li>
               <li>
                 <Link to={'/tickets/'}>Tickets</Link>
               </li>
               <li>
-                <a href="https://www.pinegroveband.com/store">Store</a>
-              </li>
-              <li>
-                <Link to={'/albums/'}>Recorded</Link>
+                <a href="http://smarturl.it/pinegrovestore">Store</a>
               </li>
               <li>
                 <a href="https://community.pinegroveband.com">Community</a>
               </li>
+              <li>
+                <Link style={nowrap} to={'/mailing-list/'}>
+                  Mailing List
+                </Link>
+              </li>
               {/* <li>
                 <a href="#link">Media</a>
               </li> */}
-              <li>
+              {/* <li>
                 <Link to={'/search/'}>Search</Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
           {/* #bottom */}

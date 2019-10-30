@@ -18,13 +18,19 @@ const links = [
       </div>
     ),
   },
-  { location: '/tickets/', text: 'get tickets' },
+  { location: '/phase/', text: 'watch phase' },
+  { location: '/tickets/', text: 'tour dates' },
+  {
+    location: 'http://pinegrove.ffm.to/marigoldtourpresale',
+    text: 'marigold ticket pre-sale',
+  },
+  { location: '/albums/', text: 'recordings' },
   { location: 'http://smarturl.it/pinegrovestore', text: 'store' },
   // { location: '/search/', text: 'search' },
-  { location: '/albums/', text: 'recordings' },
   // { location: '/tour-archive/', text: 'tour archive' },
   // { location: '/media/', text: 'media' },
   { location: 'https://community.pinegroveband.com/', text: 'community' },
+  { location: '/mailing-list/', text: 'mailing list' },
 ]
 
 class RootIndex extends React.Component {
