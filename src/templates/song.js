@@ -96,8 +96,12 @@ class SongTemplate extends React.Component {
               {/* .col */}
               <div className="col" data-aos="fade">
                 <h2>played live recently</h2>
-                <div className="date-venu-list">
-                  {song.live_performance &&
+                <div className="coming-soon" style={{ textAlign: 'center' }}>
+                  coming soon...
+                </div>
+                {/* <div className="date-venu-list"> */}
+
+                {/* {song.live_performance &&
                     song.live_performance.map(live => (
                       <div className="date-venue-item">
                         <div className="date">
@@ -107,16 +111,14 @@ class SongTemplate extends React.Component {
                           <div className="dd">{live.date.substring(8, 10)}</div>
                           <div className="YY">{live.date.substring(0, 4)}</div>
                         </div>
-                        {/* .date */}
                         <div className="venue">
                           <Link to={`/show/${live.slug}`}>{live.venue}</Link>
                           <br />
                           {live.citystatecountry}
                         </div>
-                        {/* .venue*/}
                       </div>
-                    ))}
-                </div>
+                    ))} */}
+                {/* </div> */}
                 {/* .date-venue-list */}
               </div>
               {/* .col */}

@@ -20,10 +20,10 @@ const links = [
   },
   { location: '/tickets/', text: 'get tickets' },
   { location: 'http://smarturl.it/pinegrovestore', text: 'store' },
-  { location: '/search/', text: 'search' },
-  { location: '/albums/', text: 'recorded' },
-  { location: '/tour-archive/', text: 'tour archive' },
-  { location: '/media/', text: 'media' },
+  // { location: '/search/', text: 'search' },
+  { location: '/albums/', text: 'recordings' },
+  // { location: '/tour-archive/', text: 'tour archive' },
+  // { location: '/media/', text: 'media' },
   { location: 'https://community.pinegroveband.com/', text: 'community' },
 ]
 

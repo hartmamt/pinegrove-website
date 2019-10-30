@@ -96,6 +96,22 @@ class AlbumTemplate extends React.Component {
             </div>
             <div className="col" data-aos="fade">
               <h2>tracks</h2>
+              {/* <ol>
+                {tracks
+                  ? tracks.map(song => (
+                      <li>
+                        <Link to={`/song/${song.slug}`}>{song.songTitle}</Link>
+
+                        <div
+                          style={{ maxWidth: '450px', marginTop: '20px' }}
+                          dangerouslySetInnerHTML={{
+                            __html: song.audioEmbed.childMarkdownRemark.html,
+                          }}
+                        />
+                      </li>
+                    ))
+                  : null}
+              </ol> */}
               <Accordion
                 allowZeroExpanded
                 className="accordion accordion-section"
@@ -111,11 +127,14 @@ class AlbumTemplate extends React.Component {
                       <AccordionItemPanel>
                         <div className="accordion-content">
                           <div
-                            style={{ width: '100%' }}
+                            style={{ width: '100%', paddingBottom: '20px' }}
                             dangerouslySetInnerHTML={{
                               __html: track.audioEmbed.childMarkdownRemark.html,
                             }}
                           />
+                          <Link to={`/song/${track.slug}`} class="coming-soon">
+                            see more...
+                          </Link>
                           <div className="accordion-content">
                             <h3>Lyrics</h3>
                             <pre>
