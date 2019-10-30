@@ -89,7 +89,10 @@ class MailingListIndex extends React.Component {
                         type="email"
                         name="EMAIL"
                         className="required email"
-                        style={{ fontFamily: '"Special Elite", monospace' }}
+                        style={{
+                          fontFamily: '"Special Elite", monospace',
+                          backgroundColor: '#fdcf04',
+                        }}
                         id="mce-EMAIL"
                       />
                     </div>
@@ -100,7 +103,10 @@ class MailingListIndex extends React.Component {
                         name="FNAME"
                         className
                         id="mce-FNAME"
-                        style={{ fontFamily: '"Special Elite", monospace' }}
+                        style={{
+                          fontFamily: '"Special Elite", monospace',
+                          backgroundColor: '#fdcf04',
+                        }}
                       />
                     </div>
                     <div className="mc-field-group">
@@ -110,7 +116,10 @@ class MailingListIndex extends React.Component {
                         name="LNAME"
                         className
                         id="mce-LNAME"
-                        style={{ fontFamily: '"Special Elite", monospace' }}
+                        style={{
+                          fontFamily: '"Special Elite", monospace',
+                          backgroundColor: '#fdcf04',
+                        }}
                       />
                     </div>
                     <div
