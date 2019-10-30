@@ -40,7 +40,7 @@ class TabsIndex extends React.Component {
         <div>
           <Helmet title={siteTitle} />
           <header data-aos="fade">
-            <h1>tabs</h1>
+            <h1>guitar tabs</h1>
             <div className="back-link">
               <a href="javascript:history.back();">
                 <img src="/img/arrow-back.svg" alt="Back" />
