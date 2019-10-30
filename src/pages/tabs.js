@@ -12,7 +12,7 @@ import tabStyles from './tabs.module.css'
 
 class TabsIndex extends React.Component {
   render() {
-    console.log(tabStyles)
+    // console.log(tabStyles)
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const tabs = get(this, 'props.data.allContentfulSong.edges')
 

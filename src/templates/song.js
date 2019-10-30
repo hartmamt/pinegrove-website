@@ -24,7 +24,7 @@ const months = [
 class SongTemplate extends React.Component {
   render() {
     const song = get(this.props, 'data.contentfulSong')
-    console.log(song)
+    //console.log(song)
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     //console.log(song)
     // size may also be a plain string using the presets 'large' or 'compact'
