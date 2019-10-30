@@ -8,18 +8,25 @@ import Layout from '../components/layout'
 import PinegroveGrid from '../components/pinegrove-grid'
 import AlbumPreview from '../components/album-preview'
 
+import tabStyles from './tabs.module.css'
+
 class TabsIndex extends React.Component {
   render() {
+    console.log(tabStyles)
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const tabs = get(this, 'props.data.allContentfulSong.edges')
 
     const links = tabs.map(tab => ({
       location: undefined,
       text: (
-        <div>
-          <a href={tab.node.tabView.file.url}>{tab.node.songTitle}</a> <br />
+        <div className={tabStyles.tab}>
+          <a className={tabStyles.tab} href={tab.node.tabView.file.url}>
+            {tab.node.songTitle}
+          </a>{' '}
+          <br />
           <a
-            style={{ fontSize: 'medium', textDecoration: 'none' }}
+            className={tabStyles.tab}
+            style={{ fontSize: 'small', textDecoration: 'none' }}
             href={tab.node.tabPrint.file.url}
           >
             print
