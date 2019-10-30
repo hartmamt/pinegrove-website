@@ -101,6 +101,11 @@ class Template extends React.Component {
                   Mailing List
                 </Link>
               </li>
+              <li>
+                <Link style={nowrap} to={'/tabs/'}>
+                  Tabs
+                </Link>
+              </li>
               {/* <li>
                 <a href="#link">Media</a>
               </li> */}

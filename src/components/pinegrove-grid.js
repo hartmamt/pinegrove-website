@@ -13,7 +13,18 @@ export default ({ links, squareTextStyle, colorOverride }) => {
     <div id="square-container" data-aos="fade" data-aos-delay="200">
       {pinegroveGrid.map(element => {
         if (element.link) {
-          if (element.link.location.includes('http')) {
+          if (element.link.location === undefined) {
+            return (
+              <div
+                className={`square ${
+                  colorOverride ? colorOverride : element.color
+                }`}
+              >
+                {' '}
+                <div className="square-text">{element.link.text}</div>
+              </div>
+            )
+          } else if (element.link.location.includes('http')) {
             return (
               <a
                 className={`square ${
