@@ -11,7 +11,7 @@ import AlbumPreview from '../components/album-preview'
 
 const links = [
   {
-    location: '/pre/',
+    location: 'https://pinegrove.ffm.to/marigold',
     text: (
       <div className="square-text">
         <span className="nowrap">pre-order</span> marigold

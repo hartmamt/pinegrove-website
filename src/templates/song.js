@@ -1,16 +1,32 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import Layout from '../components/layout'
 
+const months = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+]
+
 class SongTemplate extends React.Component {
   render() {
     const song = get(this.props, 'data.contentfulSong')
+    console.log(song)
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-
+    //console.log(song)
     // size may also be a plain string using the presets 'large' or 'compact'
     const size = {
       width: '100%',
@@ -25,7 +41,7 @@ class SongTemplate extends React.Component {
       <Layout location={this.props.location}>
         <div>
           <Helmet title={`${song.songTitle} | ${siteTitle}`} />{' '}
-          <div>
+          <div id="site-container">
             <header data-aos="fade">
               <h1>{song.songTitle}</h1>
               <div className="back-link">
@@ -39,21 +55,74 @@ class SongTemplate extends React.Component {
                 </a>
               </div>
             </header>
-            <h4>Lyrics</h4>
-            <div>
-              <pre>{documentToReactComponents(song.lyrics.json)} </pre>
+
+            <div className="container">
+              <div className="col" data-aos="fade">
+                <h2>Lyrics</h2>
+                <pre>{documentToReactComponents(song.lyrics.json)} </pre>
+                {/* <h2>tab</h2>
+                <p>...</p> */}
+              </div>
+              {/* .col */}
+              <div className="col text-center" data-aos="fade">
+                <h2>found on</h2>
+
+                {song.album &&
+                  song.album.map(album => (
+                    <div>
+                      <div className="album-image-med">
+                        <Link to={`/album/${album.slug}`}>
+                          <img
+                            src={album.albumCover.fluid.src}
+                            alt={album.title}
+                          />
+                        </Link>
+                      </div>
+                      <div className="bandcamp-embed-med">
+                        <div
+                          style={{
+                            maxWidth: '450px',
+                            marginTop: '20px',
+                            marginBottom: '20px',
+                          }}
+                          dangerouslySetInnerHTML={{
+                            __html: album.playerEmbed.childMarkdownRemark.html,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+              </div>
+              {/* .col */}
+              <div className="col" data-aos="fade">
+                <h2>played live recently</h2>
+                <div className="date-venu-list">
+                  {song.live_performance &&
+                    song.live_performance.map(live => (
+                      <div className="date-venue-item">
+                        <div className="date">
+                          <div className="mm">
+                            {months[parseInt(live.date.substring(5, 7) - 1)]}
+                          </div>
+                          <div className="dd">{live.date.substring(8, 10)}</div>
+                          <div className="YY">{live.date.substring(0, 4)}</div>
+                        </div>
+                        {/* .date */}
+                        <div className="venue">
+                          <Link to={`/show/${live.slug}`}>{live.venue}</Link>
+                          <br />
+                          {live.citystatecountry}
+                        </div>
+                        {/* .venue*/}
+                      </div>
+                    ))}
+                </div>
+                {/* .date-venue-list */}
+              </div>
+              {/* .col */}
             </div>
-            <h4>Tab</h4>
-            <div>
-              <pre>{documentToReactComponents(song.tab.json)} </pre>
-            </div>
+            {/* .container */}
           </div>
-          {/* <DiscussionBox
-                    discourseUrl={'https://amperland.gokinjo.space/'}
-                    discourseEmbedUrl={
-                      'https://amperland.gokinjo.space/t/skylight-album-discussion/25'
-                    }
-                  /> */}{' '}
         </div>{' '}
       </Layout>
     )
@@ -77,6 +146,26 @@ export const pageQuery = graphql`
       }
       tab {
         json
+      }
+      album {
+        title
+        albumCover {
+          fluid {
+            src
+          }
+        }
+        slug
+        playerEmbed {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+      live_performance {
+        citystatecountry
+        venue
+        date
+        slug
       }
     }
   }
