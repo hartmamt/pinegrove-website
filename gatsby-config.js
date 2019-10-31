@@ -26,6 +26,7 @@ module.exports = {
     title: 'Pinegrove',
     siteUrl: 'https://www.pinegroveband.com',
     image: '/img/home-social.png',
+    defaultImage: '/img/home-social.png',
     titleTemplate: '%s | Amperland',
     description: 'Pinegrove',
     twitterUsername: 'PinegroveBand',
