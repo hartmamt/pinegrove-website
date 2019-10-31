@@ -23,7 +23,7 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Amperland',
+    title: 'Pinegrove',
     siteUrl: 'https://www.pinegroveband.com',
     image: '/img/home-social.png',
     titleTemplate: '%s | Amperland',
