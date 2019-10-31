@@ -56,7 +56,7 @@ class Template extends React.Component {
             property="og:description"
             content="Amperland, home of Pinegrove"
           />
-          {this.props.ogTags ? this.props.ogTags : null}
+          {this.props.ogTags && this.props.ogTags.map(tag => tag)}
         </Helmet>
         {children}
         <footer id>
