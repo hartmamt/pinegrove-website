@@ -25,7 +25,11 @@ module.exports = {
   siteMetadata: {
     title: 'Amperland',
     siteUrl: 'https://www.pinegroveband.com',
-    image: '/img/home-social.png'
+    image: '/img/home-social.png',
+    titleTemplate: '%s | Amperland',
+    description: 'Pinegrove',
+    twitterUsername: 'PinegroveBand',
+    url: 'https://www.pinegroveband.com',
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [

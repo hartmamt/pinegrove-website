@@ -14,6 +14,7 @@ import {
   faBandcamp,
 } from '@fortawesome/free-brands-svg-icons'
 import '../pages/pinegrove.css'
+import SEO from './seo'
 
 class Template extends React.Component {
   componentDidMount() {
@@ -34,7 +35,7 @@ class Template extends React.Component {
     const nowrap = { whiteSpace: 'nowrap' }
     return (
       <div id="site-container">
-        <Helmet title={this.props.title ? this.props.title : 'Amperland'}>
+        {/* <Helmet title={this.props.title ? this.props.title : 'Amperland'}>
           <meta
             data-react-helmet="true"
             property="og:image"
@@ -57,7 +58,8 @@ class Template extends React.Component {
             content="Amperland, home of Pinegrove"
           />
           {this.props.ogTags && this.props.ogTags.map(tag => tag)}
-        </Helmet>
+        </Helmet> */}
+        <SEO />
         {children}
         <footer id>
           <nav id="bottom">

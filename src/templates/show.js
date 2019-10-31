@@ -56,7 +56,7 @@ class ShowTemplate extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div>
-          <Helmet title={`${show.title} | ${siteTitle}`} />
+          {/* <Helmet title={`${show.title} | ${siteTitle}`} /> */}
 
           {/* </div> */}
 
