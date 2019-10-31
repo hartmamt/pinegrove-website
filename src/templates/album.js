@@ -52,32 +52,34 @@ class AlbumTemplate extends React.Component {
     const tracks = get(this, 'props.data.contentfulAlbum.tracks')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout
+        location={this.props.location}
+        title={`${album.title} | ${siteTitle}`}
+        ogTags={[
+          <meta
+            data-react-helmet="true"
+            property="og:image"
+            content={album.albumCover.fluid.src}
+          />,
+          <meta
+            data-react-helmet="true"
+            property="og:title"
+            content={album.title}
+          />,
+          <meta
+            data-react-helmet="true"
+            property="og:url"
+            content="https://www.pinegroveband.com"
+          />,
+          <meta data-react-helmet="true" property="og:type" content="band" />,
+          <meta
+            data-react-helmet="true"
+            property="og:description"
+            content="Amperland, home of Pinegrove"
+          />,
+        ]}
+      >
         <div>
-          <Helmet title={`${album.title} | ${siteTitle}`}>
-            <meta
-              data-react-helmet="true"
-              property="og:image"
-              content={album.albumCover.fluid.src}
-            />
-            <meta
-              data-react-helmet="true"
-              property="og:title"
-              content={album.title}
-            />
-            <meta
-              data-react-helmet="true"
-              property="og:url"
-              content="https://www.pinegroveband.com"
-            />
-            <meta data-react-helmet="true" property="og:type" content="band" />
-            <meta
-              data-react-helmet="true"
-              property="og:description"
-              content="Amperland, home of Pinegrove"
-            />
-          </Helmet>
-
           <header data-aos="fade">
             <h1>{album.title}</h1>
             <div className="back-link">

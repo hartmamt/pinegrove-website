@@ -34,7 +34,7 @@ class Template extends React.Component {
     const nowrap = { whiteSpace: 'nowrap' }
     return (
       <div id="site-container">
-        <Helmet title={'Amperland'}>
+        <Helmet title={this.props.title ? this.props.title : 'Amperland'}>
           <meta
             data-react-helmet="true"
             property="og:image"
@@ -56,6 +56,7 @@ class Template extends React.Component {
             property="og:description"
             content="Amperland, home of Pinegrove"
           />
+          {this.props.ogTags ? this.props.ogTags : null}
         </Helmet>
         {children}
         <footer id>
