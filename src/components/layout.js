@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Helmet from 'react-helmet'
 import AOS from 'aos'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   fab,
   faFacebook,
@@ -13,11 +13,7 @@ import {
   faItunes,
   faBandcamp,
 } from '@fortawesome/free-brands-svg-icons'
-//import { faFacebook } from '@fortawesome/free-solid-svg-icons'
-import base from './base.css'
 import '../pages/pinegrove.css'
-import Container from './container'
-import Navigation from './navigation'
 
 class Template extends React.Component {
   componentDidMount() {
@@ -38,6 +34,13 @@ class Template extends React.Component {
     const nowrap = { whiteSpace: 'nowrap' }
     return (
       <div id="site-container">
+        <Helmet title={'Amperland'}>
+          <meta
+            data-react-helmet="true"
+            property="og:image"
+            content="/img/home-social.png"
+          />
+        </Helmet>
         {children}
         <footer id>
           <nav id="bottom">
@@ -53,9 +56,14 @@ class Template extends React.Component {
                 </a>
               </li>
               <li>
-                <Link style={nowrap} to={'/phase/'}>
+                <a
+                  style={nowrap}
+                  href={'https://pinegrove.ffm.to/phase'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Watch "Phase"
-                </Link>
+                </a>
               </li>
               <li>
                 <a
@@ -91,22 +99,6 @@ class Template extends React.Component {
                   Community
                 </a>
               </li>
-              {/* <li>
-                <Link style={nowrap} to={'/mailing-list/'}>
-                  Mailing List
-                </Link>
-              </li> */}
-              {/* <li>
-                <Link style={nowrap} to={'/tabs/'}>
-                  Guitar Tabs
-                </Link>
-              </li> */}
-              {/* <li>
-                <a href="#link">Media</a>
-              </li> */}
-              {/* <li>
-                <Link to={'/search/'}>Search</Link>
-              </li> */}
             </ul>
           </nav>
           {/* #bottom */}

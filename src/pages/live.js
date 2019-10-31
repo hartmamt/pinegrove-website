@@ -1,11 +1,9 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import { useMediaQuery } from 'react-responsive'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import styles from './live.module.css'
 import Layout from '../components/layout'
-import AlbumPreview from '../components/album-preview'
 
 const loadBandsInTown = callback => {
   const existingScript = document.getElementById('bandsInTown')
@@ -68,14 +66,7 @@ class LiveIndex extends React.Component {
                         {new Date(node.date).getFullYear()}
                       </span>
                     </div>
-                    <div
-                      className={styles.details}
-                      style={
-                        {
-                          // maxWidth: isTabletOrMobileDevice ? '300px' : '800px',
-                        }
-                      }
-                    >
+                    <div className={styles.details}>
                       <Link to={`/live/${node.slug}`}>
                         {node.venue} {node.citystatecountry}
                       </Link>

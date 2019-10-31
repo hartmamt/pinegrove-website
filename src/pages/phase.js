@@ -1,12 +1,8 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
-import { useMediaQuery } from 'react-responsive'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import styles from './live.module.css'
 import Layout from '../components/layout'
-import PinegroveGrid from '../components/pinegrove-grid'
-import AlbumPreview from '../components/album-preview'
 import ReactPlayer from 'react-player'
 
 let links = [{ location: '/tour/all/', text: 'all' }]

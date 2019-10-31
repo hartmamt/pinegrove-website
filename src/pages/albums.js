@@ -2,21 +2,8 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import styles from './album.module.css'
 import Layout from '../components/layout'
-import AlbumPreview from '../components/album-preview'
 import PinegroveGrid from '../components/pinegrove-grid'
-
-// const links = [
-//   { location: '/pre/', text: 'poore-order marigold' },
-//   { location: '/tickets/', text: 'get tickets' },
-//   { location: '/store/', text: 'store' },
-//   { location: '/search/', text: 'search' },
-//   { location: '/albums/', text: 'recorded' },
-//   { location: '/live/', text: 'tour archive' },
-//   { location: '/articles/', text: 'media' },
-//   { location: 'https://amperland.gokinjo.space/', text: 'community' },
-// ]
 
 class AlbumIndex extends React.Component {
   render() {

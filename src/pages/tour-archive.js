@@ -1,12 +1,9 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
-import { useMediaQuery } from 'react-responsive'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import styles from './live.module.css'
 import Layout from '../components/layout'
 import PinegroveGrid from '../components/pinegrove-grid'
-import AlbumPreview from '../components/album-preview'
 
 let links = [{ location: '/tour/all/', text: 'all' }]
 
@@ -21,7 +18,6 @@ class TourArchiveIndex extends React.Component {
 
     const showsWithYear = shows
       .map(show => {
-        //show.node.year = show.node.date.substring(0, 4)
         return {
           location: '/tour/' + show.node.date.substring(0, 4),
           text: show.node.date.substring(0, 4),

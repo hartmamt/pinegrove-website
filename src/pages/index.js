@@ -3,11 +3,8 @@ import { graphql } from 'gatsby'
 import AOS from 'aos'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import { useMediaQuery } from 'react-responsive'
-import Hero from '../components/hero'
 import Layout from '../components/layout'
 import PinegroveGrid from '../components/pinegrove-grid'
-import AlbumPreview from '../components/album-preview'
 
 const links = [
   {
@@ -18,15 +15,14 @@ const links = [
       </div>
     ),
   },
-  { location: '/phase/', text: 'watch "phase"' },
+  {
+    location: 'https://pinegrove.ffm.to/phase',
+    text: <div className="square-text">watch &amp; stream phase</div>,
+  },
   {
     location: '/tour-dates/',
     text: 'tour dates',
   },
-  // {
-  //   location: 'https://www.bandsintown.com/a/1685238-pinegrove',
-  //   text: 'tour dates',
-  // },
   {
     location: 'http://pinegrove.ffm.to/marigoldtourpresale',
     text: 'marigold ticket pre-sale',
@@ -48,7 +44,6 @@ class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const albums = get(this, 'props.data.allContentfulAlbum.edges')
-    //console.log(get(this, 'props.data.allContentfulPerson.edges'))
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
 
     // AOS.init()
@@ -62,16 +57,6 @@ class RootIndex extends React.Component {
           data-gr-c-s-loaded="true"
           screen_capture_injected="true"
         >
-          <Helmet title={siteTitle}>
-            <meta
-              data-react-helmet="true"
-              property="og:image"
-              content="/img/home-social.png"
-            />
-          </Helmet>
-
-          {/* <h1 className="section-headline">hello & welcome</h1> */}
-
           <header id>
             <h1>hello & welcome</h1>
           </header>

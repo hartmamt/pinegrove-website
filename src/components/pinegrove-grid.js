@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
-import { useMediaQuery } from 'react-responsive'
 import { pinegroveGrid } from '../helpers/pinegroveGridBuilder'
 
 export default ({ links, squareTextStyle, colorOverride }) => {

@@ -24,7 +24,8 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'Amperland',
-    siteUrl: 'https://amperland.netlify.com'
+    siteUrl: 'https://www.pinegroveband.com',
+    image: '/img/home-social.png'
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [

@@ -1,9 +1,7 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
-import { useMediaQuery } from 'react-responsive'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import styles from './live.module.css'
 import Layout from '../components/layout'
 import PinegroveGrid from '../components/pinegrove-grid'
 import AlbumPreview from '../components/album-preview'
@@ -12,7 +10,6 @@ import tabStyles from './tabs.module.css'
 
 class TabsIndex extends React.Component {
   render() {
-    // console.log(tabStyles)
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const tabs = get(this, 'props.data.allContentfulSong.edges')
 
