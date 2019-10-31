@@ -3,8 +3,6 @@ import { Link } from 'gatsby'
 import get from 'lodash/get'
 import algoliasearch from 'algoliasearch/lite'
 
-import Helmet from 'react-helmet'
-import Hero from '../components/hero'
 import {
   InstantSearch,
   SearchBox,
@@ -133,7 +131,6 @@ class SearchPage extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div>
-          <Helmet title={siteTitle} />
           <header data-aos="fade">
             <h1>search</h1>
             <div className="back-link">

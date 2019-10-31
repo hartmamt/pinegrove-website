@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import PinegroveGrid from '../components/pinegrove-grid'
-import Helmet from 'react-helmet'
 
 import Layout from '../components/layout'
 

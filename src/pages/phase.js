@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import ReactPlayer from 'react-player'
 
@@ -18,7 +17,6 @@ class PhaseIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div>
-          <Helmet title={siteTitle} />
           <header data-aos="fade">
             <h1>phase</h1>
             <div className="back-link">

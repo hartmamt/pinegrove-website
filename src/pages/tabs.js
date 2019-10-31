@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import PinegroveGrid from '../components/pinegrove-grid'
 import AlbumPreview from '../components/album-preview'
@@ -35,7 +34,6 @@ class TabsIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div>
-          <Helmet title={siteTitle} />
           <header data-aos="fade">
             <h1>guitar tabs</h1>
             <div className="back-link">

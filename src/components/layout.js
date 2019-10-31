@@ -40,6 +40,17 @@ class Template extends React.Component {
             property="og:image"
             content="/img/home-social.png"
           />
+          <meta
+            data-react-helmet="true"
+            property="og:title"
+            content="Pinegrove"
+          />
+          <meta data-react-helmet="true" property="og:type" content="band" />
+          <meta
+            data-react-helmet="true"
+            property="og:description"
+            content="Home of Pinegrove"
+          />
         </Helmet>
         {children}
         <footer id>

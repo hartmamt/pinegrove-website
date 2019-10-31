@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
 import styles from './live.module.css'
 import Layout from '../components/layout'
 
@@ -31,7 +30,6 @@ class LiveIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div>
-          <Helmet title={siteTitle} />
           <div className="wrapper">
             <h2 className="section-headline"> live </h2>
             <div>

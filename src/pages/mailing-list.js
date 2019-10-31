@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { useMediaQuery } from 'react-responsive'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
 import styles from './live.module.css'
 import Layout from '../components/layout'
 import AlbumPreview from '../components/album-preview'
@@ -24,7 +23,6 @@ class MailingListIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div>
-          <Helmet title={siteTitle} />
           <div className="wrapper">
             <header data-aos="fade">
               <h1>mailing list</h1>
