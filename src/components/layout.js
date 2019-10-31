@@ -45,11 +45,16 @@ class Template extends React.Component {
             property="og:title"
             content="Pinegrove"
           />
+          <meta
+            data-react-helmet="true"
+            property="og:url"
+            content="https://www.pinegroveband.com"
+          />
           <meta data-react-helmet="true" property="og:type" content="band" />
           <meta
             data-react-helmet="true"
             property="og:description"
-            content="Home of Pinegrove"
+            content="Amperland, home of Pinegrove"
           />
         </Helmet>
         {children}

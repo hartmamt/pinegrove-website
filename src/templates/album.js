@@ -54,7 +54,29 @@ class AlbumTemplate extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div>
-          <Helmet title={`${album.title} | ${siteTitle}`} />
+          <Helmet title={`${album.title} | ${siteTitle}`}>
+            <meta
+              data-react-helmet="true"
+              property="og:image"
+              content={album.albumCover.fluid.src}
+            />
+            <meta
+              data-react-helmet="true"
+              property="og:title"
+              content="Pinegrove"
+            />
+            <meta
+              data-react-helmet="true"
+              property="og:url"
+              content="https://www.pinegroveband.com"
+            />
+            <meta data-react-helmet="true" property="og:type" content="band" />
+            <meta
+              data-react-helmet="true"
+              property="og:description"
+              content="Amperland, home of Pinegrove"
+            />
+          </Helmet>
 
           <header data-aos="fade">
             <h1>{album.title}</h1>
