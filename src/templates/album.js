@@ -63,7 +63,7 @@ class AlbumTemplate extends React.Component {
             <meta
               data-react-helmet="true"
               property="og:title"
-              content="Pinegrove"
+              content={album.title}
             />
             <meta
               data-react-helmet="true"
