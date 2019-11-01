@@ -54,7 +54,7 @@ class ShowTemplate extends React.Component {
     //const tracks = get(this, 'props.data.contentfulLivePerformance.tracks')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} title={show.title}>
         <div>
           {/* <Helmet title={`${show.title} | ${siteTitle}`} /> */}
 

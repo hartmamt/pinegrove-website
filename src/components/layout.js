@@ -59,7 +59,7 @@ class Template extends React.Component {
           />
           {this.props.ogTags && this.props.ogTags.map(tag => tag)}
         </Helmet> */}
-        <SEO />
+        <SEO title={this.props.title} image={this.props.image} />
         {children}
         <footer id>
           <nav id="bottom">
@@ -84,7 +84,7 @@ class Template extends React.Component {
                   Watch "Phase"
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   style={nowrap}
                   href="http://pinegrove.ffm.to/marigoldtourpresale"
@@ -93,7 +93,7 @@ class Template extends React.Component {
                 >
                   Marigold Ticket Pre-sale
                 </a>
-              </li>
+              </li> */}
               <li>
                 <Link to={'/albums/'}>Recordings</Link>
               </li>

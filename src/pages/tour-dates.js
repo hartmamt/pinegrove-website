@@ -1,10 +1,7 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
-import { useMediaQuery } from 'react-responsive'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import styles from './live.module.css'
 import Layout from '../components/layout'
-import AlbumPreview from '../components/album-preview'
 
 const loadBandsInTown = callback => {
   const existingScript = document.getElementById('bandsInTown')

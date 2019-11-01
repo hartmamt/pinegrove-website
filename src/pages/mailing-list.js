@@ -1,10 +1,7 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
-import { useMediaQuery } from 'react-responsive'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import styles from './live.module.css'
 import Layout from '../components/layout'
-import AlbumPreview from '../components/album-preview'
 
 class MailingListIndex extends React.Component {
   constructor(props) {
@@ -12,16 +9,13 @@ class MailingListIndex extends React.Component {
     this.state = {
       bandsInTownReady: false,
     }
-    // const isTabletOrMobileDevice = useMediaQuery({
-    //   query: '(max-device-width: 1224px)',
-    // })
   }
 
   render() {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} title={'mailing list'}>
         <div>
           <div className="wrapper">
             <header data-aos="fade">

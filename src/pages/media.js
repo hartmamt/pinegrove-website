@@ -1,9 +1,7 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import styles from './album.module.css'
 import Layout from '../components/layout'
-import AlbumPreview from '../components/album-preview'
 
 class MediaIndex extends React.Component {
   render() {

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/layout'
+import PageHeader from '../components/page-header'
 import PinegroveGrid from '../components/pinegrove-grid'
 
 class AlbumIndex extends React.Component {
@@ -19,19 +20,7 @@ class AlbumIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div>
-          <header data-aos="fade">
-            <h1>recordings</h1>
-            <div className="back-link">
-              <a href="javascript:history.back();">
-                <img src="/img/arrow-back.svg" alt="Back" />
-              </a>
-            </div>
-            <div className="home-link">
-              <a href="/">
-                <img src="/img/home.png" alt="home" />
-              </a>
-            </div>
-          </header>
+          <PageHeader pageTitle={'recordings'} />
           <PinegroveGrid links={links} />
         </div>
       </Layout>

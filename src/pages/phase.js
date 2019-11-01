@@ -15,7 +15,7 @@ class PhaseIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} title={'phase'}>
         <div>
           <header data-aos="fade">
             <h1>phase</h1>

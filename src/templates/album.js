@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
 import get from 'lodash/get'
-import Img from 'gatsby-image'
 import {
   Accordion,
   AccordionItem,
@@ -11,16 +9,9 @@ import {
   AccordionItemPanel,
 } from 'react-accessible-accordion'
 
-// Demo styles, see 'Styles' section below for some notes on use.
-//import 'react-accessible-accordion/dist/fancy-example.css'
-
-import { BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import Layout from '../components/layout'
-import DiscussionBox from '../components/DiscussionBox'
-import SoundPlayer from '../components/SoundPlayer'
-import heroStyles from '../components/hero.module.css'
 
 import './album.css'
 
@@ -55,29 +46,7 @@ class AlbumTemplate extends React.Component {
       <Layout
         location={this.props.location}
         title={`${album.title} | ${siteTitle}`}
-        ogTags={[
-          <meta
-            data-react-helmet="true"
-            property="og:image"
-            content={album.albumCover.fluid.src}
-          />,
-          <meta
-            data-react-helmet="true"
-            property="og:title"
-            content={album.title}
-          />,
-          <meta
-            data-react-helmet="true"
-            property="og:url"
-            content="https://www.pinegroveband.com"
-          />,
-          <meta data-react-helmet="true" property="og:type" content="band" />,
-          <meta
-            data-react-helmet="true"
-            property="og:description"
-            content="Amperland, home of Pinegrove"
-          />,
-        ]}
+        image={album.albumCover.fluid.src}
       >
         <div>
           <header data-aos="fade">

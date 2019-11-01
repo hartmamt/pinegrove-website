@@ -23,10 +23,10 @@ const links = [
     location: '/tour-dates/',
     text: 'tour dates',
   },
-  {
-    location: 'http://pinegrove.ffm.to/marigoldtourpresale',
-    text: 'marigold ticket pre-sale',
-  },
+  // {
+  //   location: 'http://pinegrove.ffm.to/marigoldtourpresale',
+  //   text: 'marigold ticket pre-sale',
+  // },
   { location: '/albums/', text: 'recordings' },
   { location: 'http://smarturl.it/pinegrovestore', text: 'store' },
   // { location: '/search/', text: 'search' },

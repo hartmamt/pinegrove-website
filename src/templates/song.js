@@ -38,9 +38,9 @@ class SongTemplate extends React.Component {
     //const tracks = get(this, 'props.data.contentfulAlbum.tracks')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} title={`${song.songTitle}`}>
         <div>
-          <Helmet title={`${song.songTitle} | ${siteTitle}`} />{' '}
+          {/* <Helmet title={`${song.songTitle} | ${siteTitle}`} />{' '} */}
           <div id="site-container">
             <header data-aos="fade">
               <h1>{song.songTitle}</h1>

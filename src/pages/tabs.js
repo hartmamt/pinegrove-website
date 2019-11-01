@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/layout'
 import PinegroveGrid from '../components/pinegrove-grid'
-import AlbumPreview from '../components/album-preview'
 
 import tabStyles from './tabs.module.css'
 
@@ -32,7 +31,7 @@ class TabsIndex extends React.Component {
     }))
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} title={'guitar tabs'}>
         <div>
           <header data-aos="fade">
             <h1>guitar tabs</h1>
