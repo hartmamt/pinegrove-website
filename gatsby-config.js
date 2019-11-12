@@ -91,7 +91,7 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-facebook-pixel`,
+      resolve: `gatsby-plugin-facebook-pixel-ongaku`,
       options: {
         pixelId: '589070181169027',
       },
