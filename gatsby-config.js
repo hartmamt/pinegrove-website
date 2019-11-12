@@ -90,7 +90,13 @@ module.exports = {
         // siteSpeedSampleRate: 10,
         // cookieDomain: "pinegroveband.com",
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-facebook-pixel-ongaku`,
+      options: {
+        pixelId: '589070181169027',
+      },
+    },
     // `gatsby-plugin-styled-components`,
   ],
 }
