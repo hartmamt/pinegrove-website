@@ -3,13 +3,23 @@ import { Link } from 'gatsby'
 import { pinegroveGrid } from '../helpers/pinegroveGridBuilder'
 
 export default ({ links, squareTextStyle, colorOverride }) => {
+  /* If there are more than 16 items we need to handle that */
+
   pinegroveGrid.forEach((location, index) => {
     pinegroveGrid[index].link = links[index]
   })
 
+  let grid = []
+
+  if (links.length <= 16) {
+    grid = pinegroveGrid.slice(0, 16)
+  } else if (links.length > 16) {
+    grid = pinegroveGrid
+  }
+
   return (
     <div id="square-container" data-aos="fade" data-aos-delay="200">
-      {pinegroveGrid.map(element => {
+      {grid.map(element => {
         if (element.link) {
           if (element.link.location === undefined) {
             return (
