@@ -119,12 +119,16 @@ class AlbumTemplate extends React.Component {
                       </AccordionItemHeading>
                       <AccordionItemPanel>
                         <div className="accordion-content">
-                          <div
-                            style={{ width: '100%', paddingBottom: '20px' }}
-                            dangerouslySetInnerHTML={{
-                              __html: track.audioEmbed.childMarkdownRemark.html,
-                            }}
-                          />
+                          {track.audioEmbed ? (
+                            <div
+                              style={{ width: '100%', paddingBottom: '20px' }}
+                              dangerouslySetInnerHTML={{
+                                __html:
+                                  track.audioEmbed.childMarkdownRemark.html,
+                              }}
+                            />
+                          ) : null}
+
                           <Link to={`/song/${track.slug}`} class="coming-soon">
                             see more...
                           </Link>
