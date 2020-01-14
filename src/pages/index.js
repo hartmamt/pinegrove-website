@@ -16,8 +16,8 @@ const links = [
     ),
   },
   {
-    location: 'https://pinegrove.ffm.to/phase',
-    text: <div className="square-text">watch &amp; stream phase</div>,
+    location: 'https://pinegrove.ffm.to/marigold',
+    text: <div className="square-text">watch &amp; stream the alarmist</div>,
   },
   {
     location: '/tour-dates/',

@@ -77,11 +77,11 @@ class Template extends React.Component {
               <li>
                 <a
                   style={nowrap}
-                  href={'https://pinegrove.ffm.to/phase'}
+                  href={'https://pinegrove.ffm.to/marigold'}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Watch "Phase"
+                  Watch "The Alarmist"
                 </a>
               </li>
               {/* <li>
