@@ -71,7 +71,7 @@ class Template extends React.Component {
                   rel="noopener noreferrer"
                   href="https://pinegrove.ffm.to/marigold"
                 >
-                  Marigold Pre-order
+                  Buy or Stream Marigold
                 </a>
               </li>
               <li>

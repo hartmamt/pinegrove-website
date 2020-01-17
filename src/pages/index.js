@@ -9,11 +9,7 @@ import PinegroveGrid from '../components/pinegrove-grid'
 const links = [
   {
     location: 'https://pinegrove.ffm.to/marigold',
-    text: (
-      <div className="square-text">
-        <span className="nowrap">pre-order</span> marigold
-      </div>
-    ),
+    text: <div className="square-text">buy or stream marigold</div>,
   },
   {
     location: 'https://pinegrove.ffm.to/marigold',
