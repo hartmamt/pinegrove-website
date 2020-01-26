@@ -43,7 +43,7 @@ class VoteBernieIndex extends React.Component {
                   fluid={post.heroImage.fluid}
                 />
               </div>
-              <div className="wrapper">
+              <div className="wrapper" style={{ padding: '50px' }}>
                 <div
                   dangerouslySetInnerHTML={{
                     __html: post.body.childMarkdownRemark.html,
