@@ -20,7 +20,7 @@ class VoteBernieIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={'vote bernie'}>
         <div>
-          <div className="wrapper" style={{ padding: '50px' }}>
+          <div className="wrapper">
             <header data-aos="fade">
               <h1>vote bernie</h1>
               <div className="back-link">
@@ -34,16 +34,30 @@ class VoteBernieIndex extends React.Component {
                 </a>
               </div>
             </header>
-            <div>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
               {/* <Helmet title={`${post.title} | ${siteTitle}`} /> */}
-              <div className={heroStyles.hero}>
-                <Img
-                  className={heroStyles.heroImage}
-                  alt={post.title}
-                  fluid={post.heroImage.fluid}
-                />
+              {/* <div className={heroStyles.hero}>
+                <Img alt={post.title} fluid={post.heroImage.fluid} />
+              </div> */}
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <img alt={post.title} src={post.heroImage.fluid.src} />
               </div>
-              <div className="wrapper" style={{ padding: '50px' }}>
+              <div
+                className="wrapper"
+                style={{
+                  marginTop: '20px',
+                  fontFamily: 'Helvetica,Arial,sans-serif',
+                  padding: '20px',
+                  maxWidth: '800px',
+                }}
+              >
                 <div
                   dangerouslySetInnerHTML={{
                     __html: post.body.childMarkdownRemark.html,
@@ -161,7 +175,7 @@ export const pageQuery = graphql`
       slug
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
-        fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+        fluid(maxWidth: 600, resizingBehavior: SCALE) {
           tracedSVG
           aspectRatio
           src
