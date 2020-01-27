@@ -172,7 +172,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    contentfulBlogPost(id: { eq: "54a84a48-a7f3-57b2-affd-46f4dd837c0e" }) {
+    contentfulBlogPost(slug: { eq: "vote-bernie" }) {
       title
       slug
       publishDate(formatString: "MMMM Do, YYYY")
