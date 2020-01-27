@@ -46,15 +46,11 @@ class VoteBernieIndex extends React.Component {
               {/* <div className={heroStyles.hero}>
                 <Img alt={post.title} fluid={post.heroImage.fluid} />
               </div> */}
-              <div
-                style={
-                  {
-                    /*display: 'flex', justifyContent: 'center'*/
-                  }
-                }
+              {/* <div
+               
               >
                 <img alt={post.title} src={post.heroImage.fluid.src} />
-              </div>
+              </div> */}
               <div
                 className="wrapper"
                 style={{
